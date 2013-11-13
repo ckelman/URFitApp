@@ -10,6 +10,7 @@
 
     <TextView
         android:text="banana-os"
+        android:text="Im SMACKED"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
