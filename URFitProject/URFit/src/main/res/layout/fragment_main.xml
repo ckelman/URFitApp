@@ -9,8 +9,7 @@
     tools:context=".MainActivity$PlaceholderFragment">
 
     <TextView
-        android:text="banana-os"
-        android:text="Im SUPA SMACKED"
+        android:text="donut"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
