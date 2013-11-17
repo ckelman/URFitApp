@@ -22,6 +22,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.URFitness.Weight_Activity"
+            android:label="@string/title_activity_weight_" >
+        </activity>
+        <activity
+            android:name="com.URFitness.HomeActivity"
+            android:label="@string/title_activity_home" >
+        </activity>
     </application>
 
 </manifest>
