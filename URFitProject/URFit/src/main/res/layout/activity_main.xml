@@ -17,9 +17,9 @@ android:layout_height="wrap_content"
 android:inputType="textEmailAddress"
 android:ems="10"
 android:id="@+id/editText"
-android:text="Email"
-android:layout_above="@+id/editText2"
-android:layout_alignParentLeft="true" />
+    android:layout_above="@+id/editText2"
+android:layout_alignParentLeft="true"
+    android:hint="Email" />
 
 <EditText
 android:layout_width="fill_parent"
@@ -37,6 +37,7 @@ android:layout_height="wrap_content"
 android:text="Login"
 android:id="@+id/button"
 android:layout_below="@+id/editText2"
-android:layout_alignParentLeft="true" />
+android:layout_alignParentLeft="true"
+    />
     </RelativeLayout>
 

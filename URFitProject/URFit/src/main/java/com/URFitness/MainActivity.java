@@ -63,11 +63,4 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
-    public void goWeights(View view)
-    {
-        Intent weightIntent = new Intent(this, Weight_Activity.class);
-        startActivity(weightIntent);
-
-    }
-
 }
