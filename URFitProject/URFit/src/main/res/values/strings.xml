@@ -4,7 +4,5 @@
     <string name="app_name">URFit</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_weight_">MainActivity</string>
-    <string name="title_activity_home">MainActivity</string>
 
 </resources>
