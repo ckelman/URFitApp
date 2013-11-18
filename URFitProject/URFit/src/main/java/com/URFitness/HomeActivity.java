@@ -1,5 +1,8 @@
 package com.URFitness;
 
+import android.app.Activity;
+import android.os.Bundle;
+import android.widget.Button;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
@@ -13,6 +16,7 @@ import android.view.ViewGroup;
 import android.os.Build;
 
 public class HomeActivity extends ActionBarActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
