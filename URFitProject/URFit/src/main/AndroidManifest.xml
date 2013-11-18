@@ -23,8 +23,16 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.URFitness.Weight_Activity"
+            android:label="URFit" >
+        </activity>
+        <activity
             android:name="com.URFitness.HomeActivity"
-            android:label="URFit">
+            android:label="@string/title_activity_home" >
+        </activity>
+        <activity
+            android:name="com.URFitness.BuddylistActivity"
+            android:label="@string/title_activity_buddylist" >
         </activity>
     </application>
 

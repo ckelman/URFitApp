@@ -4,5 +4,8 @@
     <string name="app_name">URFit</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_home_actvity">HomeActivity</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_buddylist">BuddylistActivity</string>
 
 </resources>
