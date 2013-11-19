@@ -1,8 +1,7 @@
 package com.URFitness;
 
-import android.content.Intent;
+import android.app.ListActivity;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,32 +9,37 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.os.Build;
+import android.widget.ListView;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 
-public class HomeActivity extends ActionBarActivity {
+public class BuddylistActivity extends ListActivity {
+
+    static final String[] FRUITS = new String[] { "Apple", "Avocado", "Banana",
+            "Blueberry", "Coconut", "Durian", "Guava", "Kiwifruit",
+            "Jackfruit", "Mango", "Olive", "Pear", "Sugar-apple" };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_buddylist);
 
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
-                    .commit();
-        }
+
+        setListAdapter(new ArrayAdapter<String>(this, R.layout.activity_buddylist, FRUITS));
+        ListView listview = getListView();
+
     }
 
-    public void jumpToPage(View v){
-        Intent intent = new Intent(getApplicationContext(), BuddylistActivity.class);
-        startActivity(intent);
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.home, menu);
+        getMenuInflater().inflate(R.menu.buddylist, menu);
         return true;
     }
 
@@ -62,7 +66,7 @@ public class HomeActivity extends ActionBarActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+            View rootView = inflater.inflate(R.layout.fragment_buddylist, container, false);
             return rootView;
         }
     }
