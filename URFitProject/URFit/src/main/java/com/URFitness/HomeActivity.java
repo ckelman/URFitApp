@@ -67,4 +67,13 @@ public class HomeActivity extends ActionBarActivity {
         }
     }
 
+    public void jumpToWeights(View v){
+        Intent intent = new Intent(getApplicationContext(), Weight_Activity.class);
+        startActivity(intent);
+    }
+
+    public void jumpToBuddy(View v){
+        Intent intent = new Intent(getApplicationContext(), BuddylistActivity.class);
+        startActivity(intent);
+    }
 }
