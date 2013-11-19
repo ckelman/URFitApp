@@ -10,7 +10,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_gravity="center"
-        android:background="@drawable/UR_Blue_Low">
+        android:background="@drawable/ur_blue_low">
 
         <Button
             android:layout_width="90dp"
@@ -31,9 +31,10 @@
             android:text="Sports"
             android:id="@+id/sports"
             android:minWidth="150dp"
-            android:textColor="#ffffff"
+            android:textColor="#010101"
             android:layout_centerVertical="true"
-            android:layout_toLeftOf="@+id/weightlifting" />
+            android:layout_toLeftOf="@+id/weightlifting"
+            android:background="@drawable/basketball" />
 
         <Button
             android:layout_width="90dp"
@@ -52,8 +53,8 @@
             android:text="Go to Buddies"
             android:id="@+id/button"
             android:onClick="jumpToBuddy"
-            android:textColor="#010101"
-            android:background="#fffb86"
+            android:textColor="#ffffff"
+            android:background="#5c5c5c"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true" />
     </RelativeLayout>
