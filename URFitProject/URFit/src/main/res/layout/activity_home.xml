@@ -22,7 +22,7 @@
             android:textColor="#ffffff"
             android:layout_above="@+id/sports"
             android:layout_centerHorizontal="true"
-            android:onClick="jumpToBuddy" />
+            android:onClick="jumpToWeights" />
 
         <Button
             android:layout_width="90dp"
