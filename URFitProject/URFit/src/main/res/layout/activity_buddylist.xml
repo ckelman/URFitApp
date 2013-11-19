@@ -12,4 +12,5 @@
         android:id="@+id/buddylist"
         android:layout_gravity="center_horizontal|top"
         android:choiceMode="singleChoice" />
+
 </FrameLayout>
