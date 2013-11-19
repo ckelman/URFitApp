@@ -10,7 +10,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_gravity="center"
-        android:background="#636b91">
+        android:background="@drawable/UR_Blue_Low">
 
         <Button
             android:layout_width="90dp"
@@ -19,7 +19,7 @@
             android:id="@+id/weightlifting"
             android:minWidth="150dp"
             android:layout_marginBottom="60dp"
-            android:textColor="#ecd3ff"
+            android:textColor="#f9fcff"
             android:layout_above="@+id/sports"
             android:layout_centerHorizontal="true"
             android:onClick="jumpToWeights"
@@ -41,10 +41,10 @@
             android:text="Cardio"
             android:minWidth="150dp"
             android:id="@+id/cardio"
-            android:textColor="#ecd3ff"
+            android:textColor="#010101"
             android:layout_alignTop="@+id/sports"
             android:layout_toRightOf="@+id/weightlifting"
-            android:background="@drawable/running2" />
+            android:background="@drawable/running" />
 
         <Button
             android:layout_width="wrap_content"
@@ -52,9 +52,9 @@
             android:text="Go to Buddies"
             android:id="@+id/button"
             android:onClick="jumpToBuddy"
-            android:layout_below="@+id/sports"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="75dp"
-            android:textColor="#ffffff" />
+            android:textColor="#010101"
+            android:background="#fffb86"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true" />
     </RelativeLayout>
 </FrameLayout>
