@@ -41,9 +41,10 @@
             android:text="Cardio"
             android:minWidth="150dp"
             android:id="@+id/cardio"
-            android:textColor="#ffffff"
+            android:textColor="#ecd3ff"
             android:layout_alignTop="@+id/sports"
-            android:layout_toRightOf="@+id/weightlifting" />
+            android:layout_toRightOf="@+id/weightlifting"
+            android:background="@drawable/running2" />
 
         <Button
             android:layout_width="wrap_content"
