@@ -19,10 +19,11 @@
             android:id="@+id/weightlifting"
             android:minWidth="150dp"
             android:layout_marginBottom="60dp"
-            android:textColor="#ffffff"
+            android:textColor="#ecd3ff"
             android:layout_above="@+id/sports"
             android:layout_centerHorizontal="true"
-            android:onClick="jumpToWeights" />
+            android:onClick="jumpToWeights"
+            android:background="@drawable/weights" />
 
         <Button
             android:layout_width="90dp"
