@@ -28,9 +28,8 @@ public class BuddylistActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buddylist);
 
-
-        setListAdapter(new ArrayAdapter<String>(this, R.layout.activity_buddylist, FRUITS));
-        ListView listview = getListView();
+        this.setListAdapter(new ArrayAdapter<String>(this, R.layout.activity_buddylist, FRUITS));
+        //ListView listview = getListView();
 
     }
 
