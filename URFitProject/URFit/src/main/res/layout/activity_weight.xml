@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Weight_Activity"
-    tools:ignore="MergeRootFrame" >
+    tools:ignore="MergeRootFrame"
+    android:background="@drawable/ur_blue_low">
 
     <TextView
         android:layout_width="257dp"
@@ -15,5 +16,7 @@
         android:editable="false"
         android:textSize="@dimen/abc_action_bar_stacked_max_height"
         android:typeface="serif"
-        android:textStyle="bold|italic" />
+        android:textStyle="bold|italic"
+        android:autoText="true"
+        android:textColor="#ffffff" />
 </FrameLayout>
