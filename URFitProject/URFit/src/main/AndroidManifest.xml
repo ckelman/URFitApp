@@ -34,6 +34,10 @@
             android:name="com.URFitness.BuddylistActivity"
             android:label="@string/title_activity_buddylist" >
         </activity>
+        <activity
+            android:name="com.URFitness.ProfileActivity"
+            android:label="@string/title_activity_profile" >
+        </activity>
     </application>
 
 </manifest>
