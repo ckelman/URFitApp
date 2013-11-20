@@ -34,7 +34,8 @@
             android:textColor="#010101"
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@+id/weightlifting"
-            android:background="@drawable/basketball" />
+            android:background="@drawable/basketball"
+            android:onClick="jumpToSports" />
 
         <Button
             android:layout_width="90dp"

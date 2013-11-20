@@ -1,5 +1,6 @@
 package com.URFitness;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -60,6 +61,16 @@ public class SportsOptionsActivity extends ActionBarActivity {
             View rootView = inflater.inflate(R.layout.fragment_sports_options, container, false);
             return rootView;
         }
+    }
+
+    public void jumpToBuddy(View v){
+        Intent intent = new Intent(getApplicationContext(), BuddylistActivity.class);
+        startActivity(intent);
+    }
+
+    public void jumpToFindBuddy(View v){
+        Intent intent = new Intent(getApplicationContext(), FindBuddy.class);
+        startActivity(intent);
     }
 
 }

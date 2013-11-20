@@ -34,7 +34,8 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:background="@drawable/abc_ab_bottom_solid_light_holo"
-            android:textColor="#000000" />
+            android:textColor="#000000"
+            android:onClick="jumpToFindBuddy" />
 
         <Button
             android:layout_width="fill_parent"

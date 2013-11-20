@@ -84,7 +84,7 @@ public class HomeActivity extends ActionBarActivity {
     }
 
     public void jumpToSports(View v){
-        Intent intent = new Intent(getApplicationContext(), CardioOptionsActivity.class);
+        Intent intent = new Intent(getApplicationContext(), SportsOptionsActivity.class);
         startActivity(intent);
     }
 }
