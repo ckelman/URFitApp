@@ -25,7 +25,7 @@ android:layout_alignParentLeft="true"
     android:hint="Email"
     android:autoText="true"
     android:textColorHint="#ffffff"
-    android:text="@string/edit_user" />
+    android:text="Email" />
 
 <EditText
 android:layout_width="fill_parent"
