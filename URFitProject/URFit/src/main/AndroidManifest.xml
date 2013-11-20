@@ -40,7 +40,7 @@
         </activity>
         <activity
             android:name="com.URFitness.WeightOptionsActivity"
-            android:label="@string/title_activity_weight_options" >
+            android:label="WeightOptionsActivity" >
         </activity>
     </application>
 
