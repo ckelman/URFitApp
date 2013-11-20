@@ -1,5 +1,6 @@
 package com.URFitness;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -60,6 +61,11 @@ public class ProfileActivity extends ActionBarActivity {
             View rootView = inflater.inflate(R.layout.fragment_profile, container, false);
             return rootView;
         }
+    }
+
+    public void submit_prof(View v){
+        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+        startActivity(intent);
     }
 
 }
