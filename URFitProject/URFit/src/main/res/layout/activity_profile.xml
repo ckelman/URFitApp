@@ -48,7 +48,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/firstName"
-                    android:weight="1"
+
                     android:layout_weight="1"
                     android:layout_column="1"
                     android:hint="First Name"
@@ -66,7 +66,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/lastName"
-                    android:weight="1"
+
                     android:layout_weight="1"
                     android:layout_column="1"
                     android:hint="Last Name"/>
@@ -110,7 +110,7 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:weight="1"
+
                     android:layout_weight="1"
                     android:layout_column="1"
                     android:hint="555 555 5555"
@@ -136,7 +136,7 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:weight="1"
+
                     android:layout_weight="1"
                     android:layout_column="1"
                     android:hint="\@FirstnameLastname"
@@ -162,7 +162,7 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:weight="1"
+
                     android:layout_weight="1"
                     android:layout_column="1"
                     android:hint="Link"
@@ -254,7 +254,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:inputType="textMultiLine"
-                    android:weight="2"
+
                     android:layout_weight="1"
                     android:layout_column="1"
                     android:hint="Bio"
@@ -267,7 +267,7 @@
                     android:text="Submit"
                     android:id="@+id/submit_prof"
                     android:layout_column="1"
-                    android:weight="1"
+                   
                     android:onClick="submit_prof" />
 
             </TableRow>
