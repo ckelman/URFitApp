@@ -4,6 +4,7 @@ import android.app.ListActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,22 +18,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class BuddylistActivity extends ListActivity {
+public class BuddylistActivity extends Activity {
+    String[] buddyArray = { "Alex Wilson", "Charlie Kelman", "Edward Barthélemy", "Daniel Weiner", "Tessa Eagle", "Michael Holupka", "Jamie Jones", "Dan Doogle", "John Robb", "Kevin Rodman", "Kurt Dinelle"};
 
-    static final String[] FRUITS = new String[] { "Apple", "Avocado", "Banana",
-            "Blueberry", "Coconut", "Durian", "Guava", "Kiwifruit",
-            "Jackfruit", "Mango", "Olive", "Pear", "Sugar-apple" };
+    private ListView buddyListView;
+    private ArrayAdapter arrayAdapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buddylist);
 
-        this.setListAdapter(new ArrayAdapter<String>(this, R.layout.activity_buddylist, FRUITS));
-        //ListView listview = getListView();
-
+        buddyListView = (ListView) findViewById(R.id.buddylist);
+        arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, buddyArray);
+        buddyListView.setAdapter(arrayAdapter);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
