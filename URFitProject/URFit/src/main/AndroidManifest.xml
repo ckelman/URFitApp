@@ -38,6 +38,10 @@
             android:name="com.URFitness.ProfileActivity"
             android:label="@string/title_activity_profile" >
         </activity>
+        <activity
+            android:name="com.URFitness.WeightOptionsActivity"
+            android:label="@string/title_activity_weight_options" >
+        </activity>
     </application>
 
 </manifest>
