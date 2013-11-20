@@ -8,5 +8,7 @@
     <string name="title_activity_home">HomeActivity</string>
     <string name="title_activity_buddylist">BuddylistActivity</string>
     <string name="title_activity_profile">ProfileActivity</string>
+    <string name="title_activity_sports_options">MainActivity</string>
+    <string name="title_activity_find_buddy">MainActivity</string>
 
 </resources>
