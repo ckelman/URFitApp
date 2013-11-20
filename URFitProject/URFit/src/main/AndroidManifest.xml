@@ -42,6 +42,10 @@
             android:name="com.URFitness.WeightOptionsActivity"
             android:label="WeightOptionsActivity" >
         </activity>
+        <activity
+            android:name="com.URFitness.CardioOptionsActivity"
+            android:label="@string/title_activity_cardio_options" >
+        </activity>
     </application>
 
 </manifest>

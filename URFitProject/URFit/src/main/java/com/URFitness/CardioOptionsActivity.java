@@ -12,12 +12,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 
-public class HomeActivity extends ActionBarActivity {
+public class CardioOptionsActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_cardiooptions);
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
@@ -26,16 +26,12 @@ public class HomeActivity extends ActionBarActivity {
         }
     }
 
-    public void jumpToPage(View v){
-        Intent intent = new Intent(getApplicationContext(), BuddylistActivity.class);
-        startActivity(intent);
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.home, menu);
+        getMenuInflater().inflate(R.menu.cardio_options, menu);
         return true;
     }
 
@@ -62,29 +58,14 @@ public class HomeActivity extends ActionBarActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+            View rootView = inflater.inflate(R.layout.fragment_cardiooptions, container, false);
             return rootView;
         }
     }
 
-    public void jumpToWeights(View v){
-        //openOptionsMenu();
-        Intent intent = new Intent(getApplicationContext(), WeightOptionsActivity.class);
+    public void jumpToBuddy(View v){
+        Intent intent = new Intent(getApplicationContext(), BuddylistActivity.class);
         startActivity(intent);
     }
 
-    public void jumpToProfile(View v){
-        Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
-        startActivity(intent);
-    }
-
-    public void jumpToCardio(View v){
-        Intent intent = new Intent(getApplicationContext(), CardioOptionsActivity.class);
-        startActivity(intent);
-    }
-
-    public void jumpToSports(View v){
-        Intent intent = new Intent(getApplicationContext(), CardioOptionsActivity.class);
-        startActivity(intent);
-    }
 }
