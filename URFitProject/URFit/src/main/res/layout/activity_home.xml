@@ -48,13 +48,13 @@
             android:background="@drawable/running" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="Go to Buddies"
+            android:text="Profile"
             android:id="@+id/button"
-            android:onClick="jumpToBuddy"
-            android:textColor="#ffffff"
-            android:background="#5c5c5c"
+            android:onClick="jumpToProfile"
+            android:textColor="#000000"
+            android:background="@drawable/abc_ab_bottom_solid_light_holo"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true" />
     </RelativeLayout>

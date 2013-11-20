@@ -73,8 +73,8 @@ public class HomeActivity extends ActionBarActivity {
         startActivity(intent);
     }
 
-    public void jumpToBuddy(View v){
-        Intent intent = new Intent(getApplicationContext(), BuddylistActivity.class);
+    public void jumpToProfile(View v){
+        Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
         startActivity(intent);
     }
 }
