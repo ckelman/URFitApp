@@ -43,12 +43,8 @@
             android:label="WeightOptionsActivity" >
         </activity>
         <activity
-            android:name="com.URFitness.SportsOptionsActivity"
-            android:label="@string/title_activity_sports_options" >
-        </activity>
-        <activity
-            android:name="com.URFitness.FindBuddy"
-            android:label="@string/title_activity_find_buddy" >
+            android:name="com.URFitness.CardioOptionsActivity"
+            android:label="@string/title_activity_cardio_options" >
         </activity>
     </application>
 

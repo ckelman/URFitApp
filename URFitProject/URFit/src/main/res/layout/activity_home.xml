@@ -45,7 +45,8 @@
             android:textColor="#010101"
             android:layout_alignTop="@+id/sports"
             android:layout_toRightOf="@+id/weightlifting"
-            android:background="@drawable/running" />
+            android:background="@drawable/running"
+            android:onClick="jumpToCardio" />
 
         <Button
             android:layout_width="fill_parent"
