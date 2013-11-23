@@ -18,6 +18,8 @@
     <string name="u_bio"></string>
     <string name="u_weightXP">Intermediate</string>
     <string name="u_cardioXP">Intermediate</string>
+    <string name="u_login_email"></string>
+    <string name="u_login_password"></string>
 
 
 </resources>

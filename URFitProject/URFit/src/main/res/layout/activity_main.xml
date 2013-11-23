@@ -14,12 +14,13 @@
 
 
 <EditText
+android:id="@+id/userLogin"
 android:layout_width="fill_parent"
 android:layout_height="wrap_content"
 android:inputType="textEmailAddress"
 android:ems="10"
-android:id="@+id/editText"
     android:textColor="#ffffff"
+    android:text="@string/u_login_email"
 android:layout_above="@+id/editText2"
 android:layout_alignParentLeft="true"
     android:hint="Email"
@@ -27,17 +28,18 @@ android:layout_alignParentLeft="true"
     android:textColorHint="#ffffff"/>
 
 <EditText
+    android:id="@+id/editText2"
 android:layout_width="fill_parent"
 android:layout_height="wrap_content"
 android:inputType="textPassword"
 android:ems="10"
-android:id="@+id/editText2"
 android:textColor="#ffffff"
     android:layout_centerVertical="true"
 android:layout_alignParentLeft="true"
     android:hint="Password"
     android:singleLine="false"
     android:autoText="false"
+    android:text="@string/u_login_password"
     android:textColorHint="#ffffff" />
 
 <Button
