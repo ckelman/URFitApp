@@ -207,7 +207,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Intermediate"
+                    android:text="@string/u_cardioXP"
                     android:id="@+id/card_experience"
                     android:layout_column="1"
                     android:textSize="20dp"
@@ -235,7 +235,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Intermediate"
+                    android:text="@string/u_weightXP"
                     android:id="@+id/weight_experience"
                     android:layout_column="1"
                     android:textSize="20dp"

@@ -16,6 +16,8 @@
     <string name="u_facebook"></string>
     <string name="u_twitter"></string>
     <string name="u_bio"></string>
+    <string name="u_weightXP">Intermediate</string>
+    <string name="u_cardioXP">Intermediate</string>
 
 
 </resources>
