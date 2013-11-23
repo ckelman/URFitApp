@@ -10,5 +10,12 @@
     <string name="title_activity_profile">ProfileActivity</string>
     <string name="title_activity_weightlifting_options">WeightliftingOptionsActivity</string>
     <string name="title_activity_cardio_options">CardioOptionsActivity</string>
+    <string name="u_first_name"></string>
+    <string name="u_last_name"></string>
+    <string name="u_phone_number"></string>
+    <string name="u_facebook"></string>
+    <string name="u_twitter"></string>
+    <string name="u_bio"></string>
+
 
 </resources>

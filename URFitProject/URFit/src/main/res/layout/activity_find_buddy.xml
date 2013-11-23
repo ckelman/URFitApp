@@ -17,9 +17,7 @@
         android:layout_height="fill_parent"
         android:layout_gravity="left|top">
 
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"></TableRow>
+
 
         <TableRow
             android:layout_width="fill_parent"
@@ -34,9 +32,7 @@
                 android:textSize="20dp" />
         </TableRow>
 
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"></TableRow>
+
 
         <TableRow
             android:layout_width="fill_parent"
