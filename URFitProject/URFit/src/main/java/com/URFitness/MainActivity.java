@@ -16,6 +16,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.os.Build;
+import android.widget.EditText;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -30,8 +41,56 @@ public class MainActivity extends ActionBarActivity {
         }
     }
     public void jumpToPage(View v){
-        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-        startActivity(intent);
+        String result = null;
+
+        EditText mEditu = (EditText) findViewById(R.id.userLogin);
+        System.out.println("1");
+        EditText mEditp = (EditText) findViewById(R.id.editText2);
+        System.out.println("2");
+
+        String uname= mEditu.getText().toString();
+        String upass=mEditp.getText().toString();
+        System.out.println("3");
+        HttpClient client = new DefaultHttpClient();
+        System.out.println("4");
+
+         String tem="http://urfitness.org/mobile_login.php?username="+uname+"&password="+upass;
+        HttpGet request = new HttpGet(tem);
+        try
+        {
+            HttpResponse response=client.execute(request);
+            System.out.println("5");
+            HttpEntity entity=response.getEntity();
+            System.out.println("6");
+            InputStream is=entity.getContent();
+            System.out.println("7");
+            InputStreamReader isr = new InputStreamReader(is);
+            System.out.println("8");
+            BufferedReader reader = new BufferedReader(isr);
+            System.out.println("9");
+            result=reader.readLine();
+            System.out.println("10");
+        }
+
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
+        if(result.equals("1")==true)
+        {
+            Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+            startActivity(intent);
+
+        }
+        else
+        {
+
+
+        }
+
+
+
     }
 
     @Override
