@@ -40,8 +40,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -58,7 +62,7 @@ public class MainActivity extends ActionBarActivity {
                     .commit();
         }
     }
-    public void jumpToPage(View v){
+    public void jumpToPage(View v) throws IOException{
         //httppost= new HttpPost("\"http://urfitness.org/mobile_login.php?username=\"+uname+\"&password=\"+upass"); // make sure the url is correct.
 
         EditText mEditu = (EditText) findViewById(R.id.userLogin);
@@ -74,21 +78,21 @@ public class MainActivity extends ActionBarActivity {
 
 
 
-
+/**
         String result = "";
         InputStream is = null;
         ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
-        nameValuePairs.add(new BasicNameValuePair("awils18@u.rochester.edu","alexwilson"));
-
+        nameValuePairs.add(new BasicNameValuePair("username","awils18@u.rochester.edu"));
+        nameValuePairs.add(new BasicNameValuePair("password","alexwilson"));
 
         try{
             HttpClient httpclient = new DefaultHttpClient();
-            HttpPost httppost = new HttpPost("http://urfitness.org/mobile_login.php");
+            HttpPost httppost = new HttpPost("http://urfitness.org/mobile_login.php?username=daniel.weiner@rochester.edu&password=poop");
             System.out.println("WELL THIS WORKS");
-            httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+            //httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
             HttpResponse response = httpclient.execute(httppost);
-            //HttpEntity entity = response.getEntity();
-            //is = entity.getContent();
+            HttpEntity entity = response.getEntity();
+            is = entity.getContent();
         }catch(Exception e){
             Log.e("log_tag", "Error in http connection "+e.toString());
         }
@@ -121,10 +125,72 @@ public class MainActivity extends ActionBarActivity {
         }
     catch(JSONException e){
         Log.e("log_tag", "Error parsing data "+e.toString());
-    }
+    }**/
+    //System.out.println(inputStreamToString(getInputStreamFromUrl("http://urfitness.org/mobile_login.php?username=daniel.weiner@rochester.edu&password=poop")));
+       connect("http://urfitness.org/mobile_login.php?username=daniel.weiner@rochester.edu&password=poop");
     }
 
+    public static void connect(String url)
+    {
 
+        HttpClient httpclient = new DefaultHttpClient();
+
+        // Prepare a request object
+        HttpGet httpget = new HttpGet(url);
+
+        // Execute the request
+        HttpResponse response;
+        try {
+            response = httpclient.execute(httpget);
+            // Examine the response status
+            Log.i("Praeda",response.getStatusLine().toString());
+
+            // Get hold of the response entity
+            HttpEntity entity = response.getEntity();
+            // If the response does not enclose an entity, there is no need
+            // to worry about connection release
+
+
+            if (entity != null) {
+
+                // A Simple JSON Response Read
+                InputStream instream = entity.getContent();
+                String result= convertStreamToString(instream);
+                // now you have the string representation of the HTML request
+                System.out.print("HERE WE ARE" + result);
+                instream.close();
+            }
+
+
+        } catch (Exception e) { System.out.print("THERE IS A CONNECTION ERROR");}
+    }
+
+    private static String convertStreamToString(InputStream is) {
+    /*
+     * To convert the InputStream to String we use the BufferedReader.readLine()
+     * method. We iterate until the BufferedReader return null which means
+     * there's no more data to read. Each line will appended to a StringBuilder
+     * and returned as String.
+     */
+        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+        StringBuilder sb = new StringBuilder();
+
+        String line = null;
+        try {
+            while ((line = reader.readLine()) != null) {
+                sb.append(line + "\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                is.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return sb.toString();
+    }
 
 
 
