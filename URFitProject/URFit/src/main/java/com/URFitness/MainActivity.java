@@ -76,63 +76,10 @@ public class MainActivity extends ActionBarActivity {
 
         System.out.println(uname + " |||||||||||||||||||" + upass);
 
-        //httpclient=new DefaultHttpClient();
-        //httppost= new HttpPost("http://urfitness.org/mobile_login.php?username=daniel.weiner@rochester.edu&password=poop");
+        httpclient=new DefaultHttpClient();
+        httppost= new HttpPost("http://urfitness.org/mobile_login.php?username=daniel.weiner@rochester.edu&password=poop");
 
-        try{
-
-            httpclient=new DefaultHttpClient();
-            httppost= new HttpPost("http://urfitness.org/mobile_login.php?username=daniel.weiner@rochester.edu&password=poop");
-            System.out.print("HEEYEYYEYEYEYEYEYEYEEYEYYEEYEY");
-            nameValuePairs = new ArrayList<NameValuePair>(2);
-            // Always use the same variable name for posting i.e the android side variable name and php side variable name should be similar,
-            nameValuePairs.add(new BasicNameValuePair("username",mEditu.getText().toString().trim()));  // $Edittext_value = $_POST['Edittext_value'];
-            nameValuePairs.add(new BasicNameValuePair("password",mEditp.getText().toString().trim()));
-            httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-            //Execute HTTP Post Request
-            //response =httpclient.execute(httppost);
-            ResponseHandler<String> responseHandler = new BasicResponseHandler();
-            final String response = httpclient.execute(httppost, responseHandler);
-            System.out.println("Response : " + response);
-            runOnUiThread(new Runnable() {
-                public void run() {
-                    //tv.setText("Response from PHP : " + response);
-                    dialog.dismiss();
-                }
-            });
-
-            if(response.equalsIgnoreCase("User Found")){
-                runOnUiThread(new Runnable() {
-                    public void run() {
-                        Toast.makeText(MainActivity.this,"Login Success", Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-                startActivity(new Intent(MainActivity.this, HomeActivity.class));
-            }else{
-                showAlert();
-            }
-
-        }catch(Exception e){
-            dialog.dismiss();
-            System.out.println("Exception : " + e.getMessage());
-        }
-    }
-    public void showAlert(){
-        this.runOnUiThread(new Runnable() {
-            public void run() {
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder.setTitle("Login Error.");
-                builder.setMessage("User not Found.")
-                        .setCancelable(false)
-                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                            }
-                        });
-                AlertDialog alert = builder.create();
-                alert.show();
-            }
-        });
+       
     }
 
 
