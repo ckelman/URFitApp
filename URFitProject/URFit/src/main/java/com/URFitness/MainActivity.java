@@ -11,6 +11,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -34,10 +35,14 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,18 +61,6 @@ public class MainActivity extends ActionBarActivity {
     public void jumpToPage(View v){
         //httppost= new HttpPost("\"http://urfitness.org/mobile_login.php?username=\"+uname+\"&password=\"+upass"); // make sure the url is correct.
 
-        Button b;
-        EditText et,pass;
-        final TextView tv;
-        HttpPost httppost;
-        StringBuffer buffer;
-        //HttpResponse response;
-        HttpClient httpclient;
-        List<NameValuePair> nameValuePairs;
-        final ProgressDialog dialog = null;
-
-        String result = null;
-
         EditText mEditu = (EditText) findViewById(R.id.userLogin);
         EditText mEditp = (EditText) findViewById(R.id.editText2);
 
@@ -76,11 +69,64 @@ public class MainActivity extends ActionBarActivity {
 
         System.out.println(uname + " |||||||||||||||||||" + upass);
 
-        httpclient=new DefaultHttpClient();
-        httppost= new HttpPost("http://urfitness.org/mobile_login.php?username=daniel.weiner@rochester.edu&password=poop");
+        //httpclient=new DefaultHttpClient();
+        //httppost= new HttpPost("http://urfitness.org/mobile_login.php?username=daniel.weiner@rochester.edu&password=poop");
 
-       
+
+
+
+        String result = "";
+        InputStream is = null;
+        ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+        nameValuePairs.add(new BasicNameValuePair("awils18@u.rochester.edu","alexwilson"));
+
+
+        try{
+            HttpClient httpclient = new DefaultHttpClient();
+            HttpPost httppost = new HttpPost("http://urfitness.org/mobile_login.php");
+            System.out.println("WELL THIS WORKS");
+            httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+            HttpResponse response = httpclient.execute(httppost);
+            //HttpEntity entity = response.getEntity();
+            //is = entity.getContent();
+        }catch(Exception e){
+            Log.e("log_tag", "Error in http connection "+e.toString());
+        }
+
+        try{
+            BufferedReader reader = new BufferedReader(new InputStreamReader(is,"iso-8859-1"),8);
+            StringBuilder sb = new StringBuilder();
+            String line = null;
+            while ((line = reader.readLine()) != null) {
+                sb.append(line + "\n");
+            }
+            is.close();
+
+            result=sb.toString();
+        }catch(Exception e){
+            Log.e("log_tag", "Error converting result "+e.toString());
+        }
+
+//parse json data
+        try{
+            JSONArray jArray = new JSONArray(result);
+            for(int i=0;i<jArray.length();i++){
+                JSONObject json_data = jArray.getJSONObject(i);
+                Log.i("log_tag","id: "+json_data.getInt("id")+
+                        ", name: "+json_data.getString("name")+
+                        ", sex: "+json_data.getInt("sex")+
+                        ", birthyear: "+json_data.getInt("birthyear")
+                );
+            }
+        }
+    catch(JSONException e){
+        Log.e("log_tag", "Error parsing data "+e.toString());
     }
+    }
+
+
+
+
 
 
 

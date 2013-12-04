@@ -46,6 +46,7 @@
             android:name="com.URFitness.CardioOptionsActivity"
             android:label="@string/title_activity_cardio_options" >
         </activity>
+        <uses-permission android:name="android.permission.INTERNET"></uses-permission>
         <activity android:name="com.URFitness.FindBuddy"
             android:label="FindBuddy">
 
