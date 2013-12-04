@@ -20,6 +20,6 @@
     <string name="u_cardioXP">Intermediate</string>
     <string name="u_login_email"></string>
     <string name="u_login_password"></string>
-
+    <string name="title_activity_login_fail">LoginFailActivity</string>
 
 </resources>

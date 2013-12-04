@@ -1,96 +1,19 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     tools:context=".FindBuddy"
     tools:ignore="MergeRootFrame" >
 
-    <ImageView
-        android:layout_width="wrap_content"
+    <ListView
         android:layout_height="wrap_content"
-        android:id="@+id/imageView"
-        android:layout_gravity="left|top" />
-
-    <TableLayout
+        android:divider="#b5b5b5"
+        android:dividerHeight="1dp"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_gravity="left|top">
+        android:listSelector="@drawable/list_selector"/>
 
 
 
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:text="Matches:"
-                android:id="@+id/textView"
-                android:layout_column="1"
-                android:textSize="20dp" />
-        </TableRow>
 
 
-
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
-
-            <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:id="@+id/imageView2"
-                android:layout_column="3"
-                android:background="@drawable/guy"
-                android:paddingTop="50dp"
-                android:paddingRight="20dp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Name: Ed Barthelemy"
-                android:id="@+id/textView2"
-                android:layout_column="4"
-                android:textSize="15dp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Skill: Intermediate"
-                android:id="@+id/textView3"
-                android:layout_column="4"
-                android:textSize="15dp" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Bio: Hi, my name is Ed...."
-                android:id="@+id/textView4"
-                android:layout_column="4"
-                android:textSize="15dp" />
-        </TableRow>
-    </TableLayout>
-</FrameLayout>
+</LinearLayout>
