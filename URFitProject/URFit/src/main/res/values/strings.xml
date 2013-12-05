@@ -10,16 +10,18 @@
     <string name="title_activity_profile">ProfileActivity</string>
     <string name="title_activity_weightlifting_options">WeightliftingOptionsActivity</string>
     <string name="title_activity_cardio_options">CardioOptionsActivity</string>
-    <string name="u_first_name"></string>
-    <string name="u_last_name"></string>
-    <string name="u_phone_number"></string>
-    <string name="u_facebook"></string>
-    <string name="u_twitter"></string>
-    <string name="u_bio"></string>
+
+    <string name="u_first_name">Charlie</string>
+    <string name="u_last_name">Kelman</string>
+    <string name="u_phone_number">508-309-9557</string>
+    <string name="u_facebook">facebook.com/charlie</string>
+    <string name="u_twitter">"@CIK"</string>
+    <string name="u_bio">Hi my name is charlie and I enjoy long walks on the beach and gettin swole.  Other enjoyable things that I enjoy to be in the partaking of includes the ice creams in additions and multiplications of the cakes.  Many say this no is the best for the swol-er-tizing, but thinking is not the agreement of mine</string>
     <string name="u_weightXP">Intermediate</string>
     <string name="u_cardioXP">Intermediate</string>
+
     <string name="u_login_email"></string>
     <string name="u_login_password"></string>
-
+    <string name="title_activity_other_profile">MainActivity</string>
 
 </resources>

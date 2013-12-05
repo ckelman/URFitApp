@@ -60,16 +60,17 @@
                     android:layout_width="fill_parent"
                     >
 
-                    <EditText
+                    <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/firstName"
+                        android:id="@+id/ofirstName"
                         android:layout_weight="1"
                         android:layout_column="1"
                         android:singleLine="true"
                         android:hint="First Name"
-
-                        />
+                        android:text="@string/u_first_name"
+                        android:textSize="20dp"
+                        android:paddingLeft="20dp" />
                 </TableRow>
 
                 <TableRow
@@ -77,16 +78,17 @@
                     android:layout_width="fill_parent"
                     >
 
-                    <EditText
-                        android:id="@+id/lastName"
+                    <TextView
+                        android:id="@+id/olastName"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_column="1"
                         android:singleLine="true"
                         android:hint="Last Name"
-
-                        />
+                        android:text="@string/u_last_name"
+                        android:textSize="20dp"
+                        android:paddingLeft="20dp" />
                 </TableRow>
 
                 <TableRow
@@ -124,8 +126,8 @@
                         android:singleLine="false"
                         android:phoneNumber="false"
                         android:paddingTop="5dp" />
-                    <EditText
-                        android:id="@+id/userPhone"
+                    <TextView
+                        android:id="@+id/ouserPhone"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -133,8 +135,8 @@
                         android:hint="555 555 5555"
                         android:singleLine="true"
                         android:phoneNumber="true"
-
-                        />
+                        android:text="@string/u_phone_number"
+                        android:textSize="20dp" />
                 </TableRow>
 
                 <TableRow
@@ -153,16 +155,16 @@
                         android:singleLine="false"
                         android:phoneNumber="false"
                         android:paddingTop="5dp" />
-                    <EditText
-                        android:id="@+id/userTwitter"
+                    <TextView
+                        android:id="@+id/ouserTwitter"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_column="1"
                         android:singleLine="true"
                         android:hint="\@FirstnameLastname"
-
-                        />
+                        android:text="@string/u_twitter"
+                        android:textSize="20dp" />
                 </TableRow>
 
                 <TableRow
@@ -181,16 +183,16 @@
                         android:singleLine="false"
                         android:phoneNumber="false"
                         android:paddingTop="5dp" />
-                    <EditText
-                        android:id="@+id/userFacebook"
+                    <TextView
+                        android:id="@+id/ouserFacebook"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:layout_column="1"
                         android:hint="Link"
                         android:singleLine="true"
-
-                        />
+                        android:text="@string/u_facebook"
+                        android:textSize="20dp" />
                 </TableRow>
 
                 <TableRow
@@ -273,15 +275,16 @@
 
             </TableLayout>
 
-            <EditText
-                android:id="@+id/user_bio"
+            <TextView
+                android:id="@+id/ouser_bio"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
                 android:layout_weight="1"
                 android:layout_column="1"
                 android:hint="Bio"
-
+                android:text="@string/u_bio"
+                android:textSize="20dp"
                 />
 
             <Button

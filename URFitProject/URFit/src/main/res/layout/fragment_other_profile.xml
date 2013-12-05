@@ -21,13 +21,6 @@
             android:layout_gravity="center_horizontal|top"
             android:orientation ="vertical"
             >
-            <ImageButton
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:id="@+id/imageButton"
-                android:layout_gravity="center_horizontal"
-                android:clickable="false"
-                android:background="@drawable/guy" />
 
 
 
@@ -68,7 +61,7 @@
                         android:layout_column="1"
                         android:singleLine="true"
                         android:hint="First Name"
-
+                        android:text="@string/u_first_name"
                         />
                 </TableRow>
 
@@ -85,7 +78,7 @@
                         android:layout_column="1"
                         android:singleLine="true"
                         android:hint="Last Name"
-
+                        android:text="@string/u_last_name"
                         />
                 </TableRow>
 
@@ -133,7 +126,7 @@
                         android:hint="555 555 5555"
                         android:singleLine="true"
                         android:phoneNumber="true"
-
+                        android:text="@string/u_phone_number"
                         />
                 </TableRow>
 
@@ -161,7 +154,7 @@
                         android:layout_column="1"
                         android:singleLine="true"
                         android:hint="\@FirstnameLastname"
-
+                        android:text="@string/u_twitter"
                         />
                 </TableRow>
 
@@ -189,7 +182,7 @@
                         android:layout_column="1"
                         android:hint="Link"
                         android:singleLine="true"
-
+                        android:text="@string/u_facebook"
                         />
                 </TableRow>
 
@@ -281,7 +274,7 @@
                 android:layout_weight="1"
                 android:layout_column="1"
                 android:hint="Bio"
-
+                android:text="@string/u_bio"
                 />
 
             <Button
@@ -291,7 +284,6 @@
                 android:id="@+id/submit_prof"
                 android:layout_column="1"
                 android:onClick="submit_prof" />
-
 
 
 
