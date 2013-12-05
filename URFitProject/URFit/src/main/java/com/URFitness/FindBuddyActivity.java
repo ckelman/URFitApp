@@ -1,5 +1,7 @@
 package com.URFitness;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -10,19 +12,41 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
+import android.widget.AdapterView;
+import android.widget.ListView;
+import android.widget.Toast;
 
-public class FindBuddyActivity extends ActionBarActivity {
+public class FindBuddyActivity extends Activity {
+
+    ListView list;
+    String[] web = {"Sally Dongle", "Big Gunz Larry", "Im Ripped Alfred"};
+    Integer[] imageId = {
+            R.drawable.guy,
+            R.drawable.guy,
+            R.drawable.guy,
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_findbuddy);
 
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
-                    .commit();
-        }
+        CustomList adapter = new
+                CustomList(FindBuddyActivity.this, web, imageId);
+        list=(ListView)findViewById(R.id.list);
+        list.setAdapter(adapter);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                //Toast.makeText(FindBuddyActivity.this, "You Clicked at " + web[+position], Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), OtherProfileActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
     }
 
 

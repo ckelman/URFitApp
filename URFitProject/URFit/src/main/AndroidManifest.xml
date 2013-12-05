@@ -50,11 +50,6 @@
         </activity>
 
         <uses-permission android:name="android.permission.INTERNET" />
-
-        <activity
-            android:name="com.URFitness.FindBuddy"
-            android:label="FindBuddy" >
-        </activity>
         <activity
             android:name="com.URFitness.OtherProfileActivity"
             android:label="@string/title_activity_other_profile" >
