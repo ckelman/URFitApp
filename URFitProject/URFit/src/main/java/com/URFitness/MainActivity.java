@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.StrictMode;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -50,7 +51,11 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 public class MainActivity extends ActionBarActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,8 +67,15 @@ public class MainActivity extends ActionBarActivity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+
+        if( Build.VERSION.SDK_INT >= 9){
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+
+            StrictMode.setThreadPolicy(policy);
+        }
     }
     public void jumpToPage(View v) throws IOException{
+
         //httppost= new HttpPost("\"http://urfitness.org/mobile_login.php?username=\"+uname+\"&password=\"+upass"); // make sure the url is correct.
 
         EditText mEditu = (EditText) findViewById(R.id.userLogin);
@@ -74,7 +86,7 @@ public class MainActivity extends ActionBarActivity {
 
         System.out.println(uname + " |||||||||||||||||||" + upass);
 
-        //httpclient=new DefaultHttpClient();
+       // httpclient=new DefaultHttpClient();
         //httppost= new HttpPost("http://urfitness.org/mobile_login.php?username=daniel.weiner@rochester.edu&password=poop");
 
 
@@ -129,29 +141,43 @@ public class MainActivity extends ActionBarActivity {
     }**/
     //System.out.println(inputStreamToString(getInputStreamFromUrl("http://urfitness.org/mobile_login.php?username=daniel.weiner@rochester.edu&password=poop")));
 
-       connect("http://urfitness.org/mobile_login.php?username=daniel.weiner@rochester.edu&password=poop");
+       int ans  = connect("http://urfitness.org/mobile_login.php?username=daniel.weiner@rochester.edu&password=poop");
+        //System.out.println("*************"+ans);
+        if (ans == 1)
+        {
         Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
         startActivity(intent);
+        }
+        else
+        {
+            Intent intent = new Intent(getApplicationContext(), Weight_Activity.class);
+            startActivity(intent);
+        }
     }
 
-    public static void connect(String url)
+    public static int connect(String url)
     {
-/*
-<<<<<<< Updated upstream
-        HttpClient httpclient = new DefaultHttpClient();
 
+        //System.out.println("1");
+        HttpClient httpclient = new DefaultHttpClient();
+        //System.out.println("2");
         // Prepare a request object
         HttpGet httpget = new HttpGet(url);
+        //System.out.println("3");
 
         // Execute the request
         HttpResponse response;
         try {
             response = httpclient.execute(httpget);
+            //System.out.println("4");
             // Examine the response status
             Log.i("Praeda",response.getStatusLine().toString());
+            //System.out.println("5");
+
 
             // Get hold of the response entity
             HttpEntity entity = response.getEntity();
+            System.out.println("6");
             // If the response does not enclose an entity, there is no need
             // to worry about connection release
 
@@ -164,16 +190,18 @@ public class MainActivity extends ActionBarActivity {
                 // now you have the string representation of the HTML request
                 System.out.print("HERE WE ARE" + result);
                 instream.close();
+
+                if(result.equals("1"))
+                    return 1;
+                else
+                    return 0;
             }
 
 
-        } catch (Exception e) { System.out.print("THERE IS A CONNECTION ERROR");}
-=======
-        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
-        startActivity(intent);
+        } catch (Exception e) { System.out.print("THERE IS A CONNECTION ERROR\n"+e);}
 
->>>>>>> Stashed changes
-            */
+        return 0;
+
     }
 
     private static String convertStreamToString(InputStream is) {
