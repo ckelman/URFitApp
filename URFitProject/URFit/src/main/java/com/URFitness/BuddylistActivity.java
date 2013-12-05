@@ -19,20 +19,42 @@ import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class BuddylistActivity extends Activity {
-    String[] buddyArray = { "Alex Wilson", "Charlie Kelman", "Edward Barthélemy", "Daniel Weiner", "Tessa Eagle", "Michael Holupka", "Jamie Jones", "Dan Doogle", "John Robb", "Kevin Rodman", "Kurt Dinelle"};
 
-    private ListView buddyListView;
-    private ArrayAdapter arrayAdapter;
+    ListView list;
+    String[] web = {"Alex Wilson", "Charlie Kelman", "Edward Barthélemy", "Daniel Weiner", "Tessa Eagle", "Michael Holupka", "Jamie Jones", "Dan Doogle", "John Robb", "Kevin Rodman", "Kurt Dinelle"};
+    Integer[] imageId = {
+            R.drawable.guy,
+            R.drawable.guy,
+            R.drawable.guy,
+            R.drawable.guy,
+            R.drawable.guy,
+            R.drawable.guy,
+            R.drawable.guy,
+            R.drawable.guy,
+            R.drawable.guy,
+            R.drawable.guy,
+            R.drawable.guy
+    };
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buddylist);
 
-        buddyListView = (ListView) findViewById(R.id.buddylist);
-        arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, buddyArray);
-        buddyListView.setAdapter(arrayAdapter);
+        CustomList adapter = new
+                CustomList(BuddylistActivity.this, web, imageId);
+        list=(ListView)findViewById(R.id.list);
+        list.setAdapter(adapter);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                Toast.makeText(BuddylistActivity.this, "You Clicked at " + web[+position], Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
     }
 
     @Override

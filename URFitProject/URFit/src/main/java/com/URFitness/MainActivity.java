@@ -129,7 +129,7 @@ public class MainActivity extends ActionBarActivity {
     }**/
     //System.out.println(inputStreamToString(getInputStreamFromUrl("http://urfitness.org/mobile_login.php?username=daniel.weiner@rochester.edu&password=poop")));
 
-       connect("http://urfitness.org/mobile_login.php?username=daniel.weiner@rochester.edu&password=poop");
+       //connect("http://urfitness.org/mobile_login.php?username=daniel.weiner@rochester.edu&password=poop");
         Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
         startActivity(intent);
     }
