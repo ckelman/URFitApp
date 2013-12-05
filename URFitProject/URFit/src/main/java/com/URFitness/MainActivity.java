@@ -77,20 +77,16 @@ public class MainActivity extends ActionBarActivity {
 
     }
     public void jumpToPage(View v) throws IOException{
-
-        //httppost= new HttpPost("\"http://urfitness.org/mobile_login.php?username=\"+uname+\"&password=\"+upass"); // make sure the url is correct.
-
         EditText mEditu = (EditText) findViewById(R.id.userLogin);
         EditText mEditp = (EditText) findViewById(R.id.editText2);
 
         String uname= mEditu.getText().toString();
         String upass=mEditp.getText().toString();
 
-        System.out.println(uname + " |||||||||||||||||||" + upass);
 
         String url = "http://urfitness.org/mobile_login.php?username="+uname+"&password="+upass;
 
-    //System.out.println(inputStreamToString(getInputStreamFromUrl("http://urfitness.org/mobile_login.php?username=daniel.weiner@rochester.edu&password=poop")));
+
         try
         {
             String ans  = sendGet(url);
@@ -99,11 +95,13 @@ public class MainActivity extends ActionBarActivity {
             {
                 Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                 startActivity(intent);
+
             }
             else
             {
                 Intent intent = new Intent(getApplicationContext(), LoginFailActivity.class);
                 startActivity(intent);
+
             }
             System.out.println(ans);
         }
@@ -112,12 +110,9 @@ public class MainActivity extends ActionBarActivity {
             System.out.println(e);
         }
 
-
-
-
     }
 
-    private String sendGet(String url) throws Exception {
+    public String sendGet(String url) throws Exception {
 
 
         HttpClient client = new DefaultHttpClient();

@@ -10,6 +10,8 @@
         android:minSdkVersion="7"
         android:targetSdkVersion="18" />
 
+
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -25,12 +27,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.URFitness.Weight_Activity"
-            android:label="URFit" >
-        </activity>
+        android:name="com.URFitness.Weight_Activity"
+        android:label="URFit" >
+    </activity>
         <activity
             android:name="com.URFitness.HomeActivity"
             android:label="@string/title_activity_home" >
+        </activity>
+        <activity
+            android:name="com.URFitness.LoginFailActivity"
+            android:label="URFit" >
         </activity>
         <activity
             android:name="com.URFitness.BuddylistActivity"
