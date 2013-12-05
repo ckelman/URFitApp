@@ -143,14 +143,19 @@ public class MainActivity extends ActionBarActivity {
 
        int ans  = connect("http://urfitness.org/mobile_login.php?username=daniel.weiner@rochester.edu&password=poop");
         //System.out.println("*************"+ans);
-        if (ans == 1)
+        if (ans == -1)
         {
         Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
         startActivity(intent);
         }
+        else if (ans == 0)
+        {
+            Intent intent = new Intent(getApplicationContext(), WeightOptionsActivity.class);
+            startActivity(intent);
+        }
         else
         {
-            Intent intent = new Intent(getApplicationContext(), Weight_Activity.class);
+            Intent intent = new Intent(getApplicationContext(), SportsOptionsActivity.class);
             startActivity(intent);
         }
     }
@@ -177,7 +182,7 @@ public class MainActivity extends ActionBarActivity {
 
             // Get hold of the response entity
             HttpEntity entity = response.getEntity();
-            System.out.println("6");
+           // System.out.println("6");
             // If the response does not enclose an entity, there is no need
             // to worry about connection release
 
@@ -194,7 +199,7 @@ public class MainActivity extends ActionBarActivity {
                 if(result.equals("1"))
                     return 1;
                 else
-                    return 0;
+                    return -1;
             }
 
 
