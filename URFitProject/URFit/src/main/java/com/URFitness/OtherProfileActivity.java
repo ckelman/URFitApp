@@ -54,7 +54,7 @@ public class OtherProfileActivity extends ActionBarActivity {
         
 
 
-        String url ="http://www.urfitness.org/mobile_getdata.php?lookfor=first&where=user&is="+username;
+        String url ="http://www.urfitness.org/mobile_getdata.php?lookfor=first&where=user&is="+otheruser;
         try
         {
             //firstname
@@ -63,38 +63,38 @@ public class OtherProfileActivity extends ActionBarActivity {
             fnameE.setText(fname, TextView.BufferType.NORMAL);
 
             //lastname
-            url = "http://www.urfitness.org/mobile_getdata.php?lookfor=last&where=user&is="+username;
+            url = "http://www.urfitness.org/mobile_getdata.php?lookfor=last&where=user&is="+otheruser;
             lname = sendGet(url);
             TextView lnameE = (TextView) findViewById(R.id.lastName);
             lnameE.setText(lname, TextView.BufferType.NORMAL);
 
             //phonenum
-            url = "http://www.urfitness.org/mobile_getdata.php?lookfor=phone_number&where=user&is="+username;
+            url = "http://www.urfitness.org/mobile_getdata.php?lookfor=phone_number&where=user&is="+otheruser;
             phone = sendGet(url);
             TextView phoneE = (TextView) findViewById(R.id.userPhone);
             phoneE.setText(phone, TextView.BufferType.NORMAL);
 
             //facebook
-            url = "http://www.urfitness.org/mobile_getdata.php?lookfor=facebook_url&where=user&is="+username;
+            url = "http://www.urfitness.org/mobile_getdata.php?lookfor=facebook_url&where=user&is="+otheruser;
             facebook = sendGet(url);
             TextView facebookE = (TextView) findViewById(R.id.userFacebook);
             facebookE.setText(facebook, TextView.BufferType.NORMAL);
 
             //twitter
-            url = "http://www.urfitness.org/mobile_getdata.php?lookfor=twitter_url&where=user&is="+username;
+            url = "http://www.urfitness.org/mobile_getdata.php?lookfor=twitter_url&where=user&is="+otheruser;
             twitter = sendGet(url);
             TextView twitterE = (TextView) findViewById(R.id.userTwitter);
             twitterE.setText(twitter, TextView.BufferType.NORMAL);
 
             //bio
-            url = "http://www.urfitness.org/mobile_getdata.php?lookfor=bio&where=user&is="+username;
+            url = "http://www.urfitness.org/mobile_getdata.php?lookfor=bio&where=user&is="+otheruser;
             bio = sendGet(url);
             System.out.println(bio);
             TextView bioE = (TextView) findViewById(R.id.user_bio);
             bioE.setText(bio, TextView.BufferType.NORMAL);
 
             //weightlifting
-            url = "http://www.urfitness.org/mobile_getdata.php?lookfor=weight_lifting&where=user&is="+username;
+            url = "http://www.urfitness.org/mobile_getdata.php?lookfor=weight_lifting&where=user&is="+otheruser;
             lift = sendGet(url);
             TextView weightE = (TextView) findViewById(R.id.weight_experience);
             if(lift.equals("0"))
@@ -110,7 +110,7 @@ public class OtherProfileActivity extends ActionBarActivity {
             weightE.setText(lift, TextView.BufferType.NORMAL);
 
             //cardio
-            url = "http://www.urfitness.org/mobile_getdata.php?lookfor=cardio&where=user&is="+username;
+            url = "http://www.urfitness.org/mobile_getdata.php?lookfor=cardio&where=user&is="+otheruser;
             cardio = sendGet(url);
             TextView cardioE = (TextView) findViewById(R.id.card_experience);
             if(cardio.equals("0"))

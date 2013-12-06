@@ -22,7 +22,7 @@ import android.widget.AdapterView.OnItemClickListener;
 public class BuddylistActivity extends Activity {
 
     ListView list;
-    String[] web = {"Alex Wilson", "Charlie Kelman", "Edward Barthélemy", "Daniel Weiner", "Tessa Eagle", "Michael Holupka", "Jamie Jones", "Dan Doogle", "John Robb", "Kevin Rodman", "Kurt Dinelle"};
+    String[] web = {"ckelman@u.rochester.edu", "Charlie Kelman", "Edward Barthélemy", "Daniel Weiner", "Tessa Eagle", "Michael Holupka", "Jamie Jones", "Dan Doogle", "John Robb", "Kevin Rodman", "Kurt Dinelle"};
     Integer[] imageId = {
             R.drawable.guy,
             R.drawable.guy,
@@ -54,7 +54,7 @@ public class BuddylistActivity extends Activity {
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
                 //Toast.makeText(BuddylistActivity.this, "You Clicked at " + web[+position], Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(), SportsOptionsActivity.class);
+                Intent intent = new Intent(getApplicationContext(), OtherProfileActivity.class);
                 intent.putExtra("usrname",username);
                 intent.putExtra("otherusr", web[+position]);
                 startActivity(intent);
