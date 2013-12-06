@@ -34,7 +34,7 @@ public class ProfileActivity extends ActionBarActivity {
     private String cardio;
     private String bio;
     private String username;
-    private int nane;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +49,7 @@ public class ProfileActivity extends ActionBarActivity {
                     .commit();
         }
 
-        String url ="http://www.urfitness.org/test.php?lookfor=first&where=user&is="+username;
+        String url ="http://www.urfitness.org/mobile_getdata.php?lookfor=first&where=user&is="+username;
         try
         {
                 //firstname
@@ -58,35 +58,35 @@ public class ProfileActivity extends ActionBarActivity {
             fnameE.setText(fname, TextView.BufferType.EDITABLE);
 
                 //lastname
-              url = "http://www.urfitness.org/test.php?lookfor=last&where=user&is="+username;
+              url = "http://www.urfitness.org/mobile_getdata.php?lookfor=last&where=user&is="+username;
               lname = sendGet(url);
             EditText lnameE = (EditText) findViewById(R.id.lastName);
             lnameE.setText(lname, TextView.BufferType.EDITABLE);
 
             //phonenum
-            url = "http://www.urfitness.org/test.php?lookfor=phone_number&where=user&is="+username;
+            url = "http://www.urfitness.org/mobile_getdata.php?lookfor=phone_number&where=user&is="+username;
             phone = sendGet(url);
             EditText phoneE = (EditText) findViewById(R.id.userPhone);
             phoneE.setText(phone, TextView.BufferType.EDITABLE);
 
             //facebook
-            url = "http://www.urfitness.org/test.php?lookfor=facebook_url&where=user&is="+username;
+            url = "http://www.urfitness.org/mobile_getdata.php?lookfor=facebook_url&where=user&is="+username;
             facebook = sendGet(url);
             EditText facebookE = (EditText) findViewById(R.id.userFacebook);
             facebookE.setText(facebook, TextView.BufferType.EDITABLE);
 
             //twitter
-            url = "http://www.urfitness.org/test.php?lookfor=twitter_number&where=user&is="+username;
+            url = "http://www.urfitness.org/mobile_getdata.php?lookfor=twitter_url&where=user&is="+username;
             twitter = sendGet(url);
             EditText twitterE = (EditText) findViewById(R.id.userTwitter);
             twitterE.setText(twitter, TextView.BufferType.EDITABLE);
 
             //weightlifting
-            url = "http://www.urfitness.org/test.php?lookfor=weight_lifting&where=user&is="+username;
+            url = "http://www.urfitness.org/mobile_getdata.php?lookfor=weight_lifting&where=user&is="+username;
             lift = sendGet(url);
 
             //cardio
-            url = "http://www.urfitness.org/test.php?lookfor=cardio&where=user&is="+username;
+            url = "http://www.urfitness.org/mobile_getdata.php?lookfor=cardio&where=user&is="+username;
             cardio = sendGet(url);
             EditText cardioE = (EditText) findViewById(R.id.card_experience);
             cardioE.setText(cardio, TextView.BufferType.NORMAL);
