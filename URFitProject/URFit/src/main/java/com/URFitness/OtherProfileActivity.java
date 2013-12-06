@@ -45,6 +45,8 @@ public class OtherProfileActivity extends ActionBarActivity {
         username = getIntent().getExtras().getString("usrname").toString();
         otheruser = getIntent().getExtras().getString("otherusr").toString();
 
+        System.out.print("HAHAHAHA" + otheruser);
+
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, new PlaceholderFragment())
