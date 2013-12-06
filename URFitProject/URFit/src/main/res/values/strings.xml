@@ -23,4 +23,11 @@
     <string name="title_activity_other_profile">MainActivity</string>
     <string name="title_activity_find_buddy">FindBuddyActivity</string>
 
+    <string-array name="experience_array">
+        <item>Beginner</item>
+        <item>Intermediate</item>
+        <item>Advanced</item>
+    </string-array>
+    <string name="prompt">Experience</string>
+
 </resources>
