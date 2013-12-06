@@ -81,21 +81,44 @@ public class ProfileActivity extends ActionBarActivity {
             EditText twitterE = (EditText) findViewById(R.id.userTwitter);
             twitterE.setText(twitter, TextView.BufferType.EDITABLE);
 
+            //bio
+            url = "http://www.urfitness.org/mobile_getdata.php?lookfor=bio&where=user&is="+username;
+            bio = sendGet(url);
+            System.out.println(bio);
+            EditText bioE = (EditText) findViewById(R.id.user_bio);
+            bioE.setText(bio, TextView.BufferType.EDITABLE);
+
             //weightlifting
             url = "http://www.urfitness.org/mobile_getdata.php?lookfor=weight_lifting&where=user&is="+username;
             lift = sendGet(url);
+            TextView weightE = (TextView) findViewById(R.id.weight_experience);
+            if(lift.equals("0"))
+            {
+                lift = "Beginner";
+            }
+            else if(lift.equals("1"))
+            {
+                lift = "Intermediate";
+            }
+            else
+            lift = "Advanced";
+            weightE.setText(lift, TextView.BufferType.NORMAL);
 
             //cardio
             url = "http://www.urfitness.org/mobile_getdata.php?lookfor=cardio&where=user&is="+username;
             cardio = sendGet(url);
-            EditText cardioE = (EditText) findViewById(R.id.card_experience);
+            TextView cardioE = (TextView) findViewById(R.id.card_experience);
+            if(cardio.equals("0"))
+            {
+                cardio = "Beginner";
+            }
+            else if(cardio.equals("1"))
+            {
+                cardio = "Intermediate";
+            }
+            else
+                cardio = "Advanced";
             cardioE.setText(cardio, TextView.BufferType.NORMAL);
-
-            //bio
-            url = "http://www.urfitness.org/mobile_getdata.php?lookfor=cardio&where=user&is="+username;
-            bio = sendGet(url);
-            EditText bioE = (EditText) findViewById(R.id.user_bio);
-            bioE.setText(cardio, TextView.BufferType.EDITABLE);
 
 
 
