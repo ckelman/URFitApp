@@ -91,6 +91,12 @@ public class ProfileActivity extends ActionBarActivity {
             EditText cardioE = (EditText) findViewById(R.id.card_experience);
             cardioE.setText(cardio, TextView.BufferType.NORMAL);
 
+            //bio
+            url = "http://www.urfitness.org/mobile_getdata.php?lookfor=cardio&where=user&is="+username;
+            bio = sendGet(url);
+            EditText bioE = (EditText) findViewById(R.id.user_bio);
+            bioE.setText(cardio, TextView.BufferType.EDITABLE);
+
 
 
         }
