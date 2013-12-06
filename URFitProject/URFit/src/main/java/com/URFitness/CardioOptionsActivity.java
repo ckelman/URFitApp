@@ -14,10 +14,13 @@ import android.os.Build;
 
 public class CardioOptionsActivity extends ActionBarActivity {
 
+    private String username = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cardiooptions);
+
+        username = getIntent().getExtras().getString("usrname").toString();
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
@@ -65,11 +68,13 @@ public class CardioOptionsActivity extends ActionBarActivity {
 
     public void jumpToBuddy(View v){
         Intent intent = new Intent(getApplicationContext(), BuddylistActivity.class);
+        intent.putExtra("usrname",username);
         startActivity(intent);
     }
 
     public void jumpToFindBuddy(View v){
         Intent intent = new Intent(getApplicationContext(), FindBuddyActivity.class);
+        intent.putExtra("usrname",username);
         startActivity(intent);
     }
 

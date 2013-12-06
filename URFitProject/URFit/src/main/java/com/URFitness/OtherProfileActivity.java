@@ -1,5 +1,6 @@
 package com.URFitness;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -34,11 +35,15 @@ public class OtherProfileActivity extends ActionBarActivity {
     private String cardio;
     private String bio;
     private String username;
+    private String otheruser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_other_profile);
+
+        username = getIntent().getExtras().getString("usrname").toString();
+        otheruser = getIntent().getExtras().getString("otherusr").toString();
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
@@ -220,6 +225,12 @@ public class OtherProfileActivity extends ActionBarActivity {
             View rootView = inflater.inflate(R.layout.fragment_other_profile, container, false);
             return rootView;
         }
+    }
+
+    public void submit_prof(View v){
+        Intent intent = new Intent(getApplicationContext(), BuddylistActivity.class);
+        intent.putExtra("usrname",username);
+        startActivity(intent);
     }
 
 }

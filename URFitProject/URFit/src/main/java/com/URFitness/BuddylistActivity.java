@@ -1,6 +1,7 @@
 package com.URFitness;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -35,12 +36,14 @@ public class BuddylistActivity extends Activity {
             R.drawable.guy,
             R.drawable.guy
     };
+    private String username = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buddylist);
 
+        username = getIntent().getExtras().getString("usrname").toString();
         CustomList adapter = new
                 CustomList(BuddylistActivity.this, web, imageId);
         list=(ListView)findViewById(R.id.list);
@@ -50,8 +53,11 @@ public class BuddylistActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view,
                                     int position, long id) {
-                Toast.makeText(BuddylistActivity.this, "You Clicked at " + web[+position], Toast.LENGTH_SHORT).show();
-
+                //Toast.makeText(BuddylistActivity.this, "You Clicked at " + web[+position], Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), SportsOptionsActivity.class);
+                intent.putExtra("usrname",username);
+                intent.putExtra("otherusr", web[+position]);
+                startActivity(intent);
             }
         });
 
