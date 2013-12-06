@@ -54,6 +54,7 @@ import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity {
+    public String uname;
 
 
 
@@ -73,6 +74,7 @@ public class MainActivity extends ActionBarActivity {
 
             StrictMode.setThreadPolicy(policy);
         }
+        uname=null;
 
 
     }
@@ -80,7 +82,7 @@ public class MainActivity extends ActionBarActivity {
         EditText mEditu = (EditText) findViewById(R.id.userLogin);
         EditText mEditp = (EditText) findViewById(R.id.editText2);
 
-        String uname= mEditu.getText().toString();
+        uname= mEditu.getText().toString();
         String upass=mEditp.getText().toString();
 
 
