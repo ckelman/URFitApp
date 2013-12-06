@@ -14,7 +14,8 @@ import android.os.Build;
 
 public class HomeActivity extends ActionBarActivity {
 
-    String username = "";
+    private String username = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +79,7 @@ public class HomeActivity extends ActionBarActivity {
 
     public void jumpToProfile(View v){
         Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+        intent.putExtra("usrname",username);
         startActivity(intent);
     }
 
