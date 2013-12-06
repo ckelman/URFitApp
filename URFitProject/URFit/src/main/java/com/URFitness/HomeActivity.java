@@ -14,10 +14,13 @@ import android.os.Build;
 
 public class HomeActivity extends ActionBarActivity {
 
+    String username = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        username = getIntent().getExtras().getString("usrname").toString();
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
