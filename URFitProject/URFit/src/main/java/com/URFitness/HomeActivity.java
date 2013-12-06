@@ -74,6 +74,7 @@ public class HomeActivity extends ActionBarActivity {
     public void jumpToWeights(View v){
         //openOptionsMenu();
         Intent intent = new Intent(getApplicationContext(), WeightOptionsActivity.class);
+        intent.putExtra("usrname",username);
         startActivity(intent);
     }
 
