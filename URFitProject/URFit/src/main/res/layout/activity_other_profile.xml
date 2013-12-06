@@ -68,7 +68,6 @@
                         android:layout_column="1"
                         android:singleLine="true"
                         android:hint="First Name"
-                        android:text="@string/u_first_name"
                         android:textSize="20dp"
                         android:paddingLeft="20dp" />
                 </TableRow>
@@ -86,7 +85,6 @@
                         android:layout_column="1"
                         android:singleLine="true"
                         android:hint="Last Name"
-                        android:text="@string/u_last_name"
                         android:textSize="20dp"
                         android:paddingLeft="20dp" />
                 </TableRow>
@@ -135,7 +133,6 @@
                         android:hint="555 555 5555"
                         android:singleLine="true"
                         android:phoneNumber="true"
-                        android:text="@string/u_phone_number"
                         android:textSize="20dp" />
                 </TableRow>
 
@@ -163,7 +160,6 @@
                         android:layout_column="1"
                         android:singleLine="true"
                         android:hint="\@FirstnameLastname"
-                        android:text="@string/u_twitter"
                         android:textSize="20dp" />
                 </TableRow>
 
@@ -191,7 +187,6 @@
                         android:layout_column="1"
                         android:hint="Link"
                         android:singleLine="true"
-                        android:text="@string/u_facebook"
                         android:textSize="20dp" />
                 </TableRow>
 
@@ -230,7 +225,6 @@
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/u_cardioXP"
                         android:id="@+id/card_experience"
                         android:layout_column="1"
                         android:textSize="20dp"
@@ -258,7 +252,6 @@
                     <TextView
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/u_weightXP"
                         android:id="@+id/weight_experience"
                         android:layout_column="1"
                         android:textSize="20dp"
@@ -283,7 +276,6 @@
                 android:layout_weight="1"
                 android:layout_column="1"
                 android:hint="Bio"
-                android:text="@string/u_bio"
                 android:textSize="20dp"
                 />
 

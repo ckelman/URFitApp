@@ -220,10 +220,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Cardio"
+                        android:text="Cardio:"
                         android:id="@+id/cardioXP_button"
                         android:layout_column="1"
-                        />
+                        android:textSize="25dp" />
 
                     <Spinner
                         android:layout_width="fill_parent"
@@ -244,26 +244,25 @@
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent">
 
-                    <Button
+                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Weights"
+                        android:text="Weights:"
                         android:id="@+id/weightXP_button"
                         android:layout_column="1"
-                        />
+                        android:textSize="25dp" />
 
-                    <TextView
+                    <Spinner
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/u_weightXP"
                         android:id="@+id/weight_experience"
                         android:layout_column="1"
                         android:textSize="20dp"
-                        android:textIsSelectable="true"
                         android:singleLine="true"
-                        android:phoneNumber="false"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="5dp"
+                        android:entries="@array/experience_array"
+                        android:prompt="@string/prompt"
+
                         />
 
                 </TableRow>

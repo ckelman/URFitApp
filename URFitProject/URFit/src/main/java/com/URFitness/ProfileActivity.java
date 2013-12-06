@@ -11,7 +11,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
+import android.widget.Adapter;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import org.apache.http.HttpResponse;
@@ -91,34 +94,14 @@ public class ProfileActivity extends ActionBarActivity {
             //weightlifting
             url = "http://www.urfitness.org/mobile_getdata.php?lookfor=weight_lifting&where=user&is="+username;
             lift = sendGet(url);
-            TextView weightE = (TextView) findViewById(R.id.weight_experience);
-            if(lift.equals("0"))
-            {
-                lift = "Beginner";
-            }
-            else if(lift.equals("1"))
-            {
-                lift = "Intermediate";
-            }
-            else
-            lift = "Advanced";
-            weightE.setText(lift, TextView.BufferType.NORMAL);
+            Spinner liftS = (Spinner)findViewById(R.id.weight_experience);
+            liftS.setPromptId(Integer.parseInt(lift));
 
             //cardio
             url = "http://www.urfitness.org/mobile_getdata.php?lookfor=cardio&where=user&is="+username;
             cardio = sendGet(url);
-            TextView cardioE = (TextView) findViewById(R.id.card_experience);
-            if(cardio.equals("0"))
-            {
-                cardio = "Beginner";
-            }
-            else if(cardio.equals("1"))
-            {
-                cardio = "Intermediate";
-            }
-            else
-                cardio = "Advanced";
-            cardioE.setText(cardio, TextView.BufferType.NORMAL);
+            Spinner cardS = (Spinner)findViewById(R.id.card_experience);
+            cardS.setPromptId(Integer.parseInt(cardio));
 
 
 
