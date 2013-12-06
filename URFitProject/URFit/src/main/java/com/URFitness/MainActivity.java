@@ -93,7 +93,9 @@ public class MainActivity extends ActionBarActivity {
 
             if(ans.equals("1"))
             {
+
                 Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                intent.putExtra("usrname",uname );
                 startActivity(intent);
 
             }
