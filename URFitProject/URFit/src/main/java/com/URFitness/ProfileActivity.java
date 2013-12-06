@@ -34,6 +34,7 @@ public class ProfileActivity extends ActionBarActivity {
     private String cardio;
     private String bio;
     private String username;
+    private int nane;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
