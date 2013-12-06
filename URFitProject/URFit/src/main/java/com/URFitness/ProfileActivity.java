@@ -197,6 +197,7 @@ public class ProfileActivity extends ActionBarActivity {
 
     public void submit_prof(View v){
         Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+        intent.putExtra("usrname",username);
         startActivity(intent);
     }
 
