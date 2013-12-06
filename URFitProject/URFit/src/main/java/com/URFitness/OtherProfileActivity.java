@@ -10,8 +10,30 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class OtherProfileActivity extends ActionBarActivity {
+
+    private String fname;
+    private String lname;
+    private String phone;
+    private String facebook;
+    private String twitter;
+    private String lift;
+    private String cardio;
+    private String bio;
+    private String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +45,144 @@ public class OtherProfileActivity extends ActionBarActivity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+        
+        
+
+
+        String url ="http://www.urfitness.org/mobile_getdata.php?lookfor=first&where=user&is="+username;
+        try
+        {
+            //firstname
+            fname=sendGet(url);
+            TextView fnameE = (TextView) findViewById(R.id.firstName);
+            fnameE.setText(fname, TextView.BufferType.NORMAL);
+
+            //lastname
+            url = "http://www.urfitness.org/mobile_getdata.php?lookfor=last&where=user&is="+username;
+            lname = sendGet(url);
+            TextView lnameE = (TextView) findViewById(R.id.lastName);
+            lnameE.setText(lname, TextView.BufferType.NORMAL);
+
+            //phonenum
+            url = "http://www.urfitness.org/mobile_getdata.php?lookfor=phone_number&where=user&is="+username;
+            phone = sendGet(url);
+            TextView phoneE = (TextView) findViewById(R.id.userPhone);
+            phoneE.setText(phone, TextView.BufferType.NORMAL);
+
+            //facebook
+            url = "http://www.urfitness.org/mobile_getdata.php?lookfor=facebook_url&where=user&is="+username;
+            facebook = sendGet(url);
+            TextView facebookE = (TextView) findViewById(R.id.userFacebook);
+            facebookE.setText(facebook, TextView.BufferType.NORMAL);
+
+            //twitter
+            url = "http://www.urfitness.org/mobile_getdata.php?lookfor=twitter_url&where=user&is="+username;
+            twitter = sendGet(url);
+            TextView twitterE = (TextView) findViewById(R.id.userTwitter);
+            twitterE.setText(twitter, TextView.BufferType.NORMAL);
+
+            //bio
+            url = "http://www.urfitness.org/mobile_getdata.php?lookfor=bio&where=user&is="+username;
+            bio = sendGet(url);
+            System.out.println(bio);
+            TextView bioE = (TextView) findViewById(R.id.user_bio);
+            bioE.setText(bio, TextView.BufferType.NORMAL);
+
+            //weightlifting
+            url = "http://www.urfitness.org/mobile_getdata.php?lookfor=weight_lifting&where=user&is="+username;
+            lift = sendGet(url);
+            TextView weightE = (TextView) findViewById(R.id.weight_experience);
+            if(lift.equals("0"))
+            {
+                lift = "Beginner";
+            }
+            else if(lift.equals("1"))
+            {
+                lift = "Intermediate";
+            }
+            else
+                lift = "Advanced";
+            weightE.setText(lift, TextView.BufferType.NORMAL);
+
+            //cardio
+            url = "http://www.urfitness.org/mobile_getdata.php?lookfor=cardio&where=user&is="+username;
+            cardio = sendGet(url);
+            TextView cardioE = (TextView) findViewById(R.id.card_experience);
+            if(cardio.equals("0"))
+            {
+                cardio = "Beginner";
+            }
+            else if(cardio.equals("1"))
+            {
+                cardio = "Intermediate";
+            }
+            else
+                cardio = "Advanced";
+            cardioE.setText(cardio, TextView.BufferType.NORMAL);
+
+
+
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+
+    }
+
+
+    public String sendGet(String url) throws Exception {
+
+
+        HttpClient client = new DefaultHttpClient();
+        HttpGet request = new HttpGet(url);
+
+
+        HttpResponse response = client.execute(request);
+
+        System.out.println("\nSending 'GET' request to URL : " + url);
+        System.out.println("Response Code : " +
+                response.getStatusLine().getStatusCode());
+
+        BufferedReader rd = new BufferedReader(
+                new InputStreamReader(response.getEntity().getContent()));
+
+        StringBuffer result = new StringBuffer();
+        String line = "";
+        while ((line = rd.readLine()) != null) {
+            result.append(line);
+        }
+
+        System.out.println(result.toString());
+        return result.toString();
+
+    }
+
+    private static String convertStreamToString(InputStream is) {
+    /*
+     * To convert the InputStream to String we use the BufferedReader.readLine()
+     * mdfeethod. We iterate until the BufferedReader return null which means
+     * there's no more data to read. Each line will appended to a StringBuilder
+     * and returned as String.
+     */
+        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+        StringBuilder sb = new StringBuilder();
+
+        String line = null;
+        try {
+            while ((line = reader.readLine()) != null) {
+                sb.append(line + "\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                is.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return sb.toString();
     }
 
 
