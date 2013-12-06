@@ -29,9 +29,9 @@ public class SportsOptionsActivity extends ActionBarActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        
+
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.sports_options, menu);
+        getMenuInflater().inflate(R.menu.cardio_options, menu);
         return true;
     }
 
@@ -57,8 +57,8 @@ public class SportsOptionsActivity extends ActionBarActivity {
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_sports_options, container, false);
+                                 Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.fragment_cardiooptions, container, false);
             return rootView;
         }
     }
@@ -72,5 +72,6 @@ public class SportsOptionsActivity extends ActionBarActivity {
         Intent intent = new Intent(getApplicationContext(), FindBuddyActivity.class);
         startActivity(intent);
     }
+
 
 }
