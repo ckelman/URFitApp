@@ -54,7 +54,9 @@ public class LoginFailActivity extends ActionBarActivity {
             if(ans.equals("1"))
             {
                 Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                intent.putExtra("usrname",uname );
                 startActivity(intent);
+
 
             }
             else

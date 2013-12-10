@@ -42,8 +42,7 @@ public class OtherProfileActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_other_profile);
 
-        username = getIntent().getExtras().getString("usrname").toString();
-        otheruser = getIntent().getExtras().getString("otherusr").toString();
+
 
         System.out.print("HAHAHAHA" + otheruser);
 
@@ -52,9 +51,9 @@ public class OtherProfileActivity extends ActionBarActivity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
-        
-        
 
+        username = getIntent().getExtras().getString("usrname").toString();
+        otheruser = getIntent().getExtras().getString("otherusr").toString();
 
         String url ="http://www.urfitness.org/mobile_getdata.php?lookfor=first&where=user&is="+otheruser;
         try
@@ -62,7 +61,7 @@ public class OtherProfileActivity extends ActionBarActivity {
             //firstname
             fname=sendGet(url);
             TextView fnameE = (TextView) findViewById(R.id.firstName);
-            fnameE.setText(fname, TextView.BufferType.NORMAL);
+            fnameE.setText(fname, TextView.BufferType.EDITABLE);
 
             //lastname
             url = "http://www.urfitness.org/mobile_getdata.php?lookfor=last&where=user&is="+otheruser;
@@ -93,7 +92,7 @@ public class OtherProfileActivity extends ActionBarActivity {
             bio = sendGet(url);
             System.out.println(bio);
             TextView bioE = (TextView) findViewById(R.id.user_bio);
-            bioE.setText(bio, TextView.BufferType.NORMAL);
+            bioE.append(bio);
 
             //weightlifting
             url = "http://www.urfitness.org/mobile_getdata.php?lookfor=weight_lifting&where=user&is="+otheruser;

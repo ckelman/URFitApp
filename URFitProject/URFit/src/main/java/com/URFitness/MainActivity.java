@@ -54,9 +54,7 @@ import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity {
-    public String uname;
-
-
+    private String uname;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

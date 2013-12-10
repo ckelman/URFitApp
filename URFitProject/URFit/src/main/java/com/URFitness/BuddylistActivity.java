@@ -56,7 +56,7 @@ public class BuddylistActivity extends Activity {
                 //Toast.makeText(BuddylistActivity.this, "You Clicked at " + web[+position], Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), OtherProfileActivity.class);
                 intent.putExtra("usrname",username);
-                intent.putExtra("otherusr", web[+position]);
+                intent.putExtra("otherusr", "ckelman@u.rochester.edu");
                 startActivity(intent);
             }
         });
