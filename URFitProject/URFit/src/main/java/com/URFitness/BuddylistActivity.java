@@ -32,7 +32,7 @@ import java.io.InputStreamReader;
 public class BuddylistActivity extends Activity {
 
     ListView list;
-    String[] web = {"ckelman@u.rochester.edu", "Charlie Kelman", "Edward Barthélemy", "Daniel Weiner", "Tessa Eagle", "Michael Holupka", "Jamie Jones", "Dan Doogle", "John Robb", "Kevin Rodman", "Kurt Dinelle"};
+    String[] web = {"Alex Wilson", "Charlie Kelman", "Edward Barthélemy", "Daniel Weiner", "Tessa Eagle", "Michael Holupka", "Jamie Jones", "Dan Doogle", "John Robb", "Kevin Rodman", "Kurt Dinelle"};
     Integer[] imageId = {
             R.drawable.guy,
             R.drawable.guy,

@@ -28,6 +28,9 @@
         <item>Intermediate</item>
         <item>Advanced</item>
     </string-array>
+
     <string name="prompt">Experience</string>
+    <string name="title_activity_loading">"LoadingActivity "</string>
+    <string name="title_activity_main_loading">LoadingActivity</string>
 
 </resources>
