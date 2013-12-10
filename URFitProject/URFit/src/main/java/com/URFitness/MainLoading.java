@@ -1,6 +1,8 @@
 package com.URFitness;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -11,16 +13,56 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
+import android.widget.ImageView;
 
-public class CardioOptionsActivity extends ActionBarActivity {
+import java.util.Timer;
+import java.util.TimerTask;
+
+public class MainLoading extends ActionBarActivity {
 
     private String username = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cardiooptions);
+        setContentView(R.layout.activity_loading);
 
         username = getIntent().getExtras().getString("usrname").toString();
+
+        ImageView progress = (ImageView)findViewById(R.id.loadinggif);
+        if (progress != null) {
+            progress.setVisibility(View.VISIBLE);
+            AnimationDrawable frameAnimation = (AnimationDrawable)progress.getDrawable();
+            frameAnimation.setCallback(progress);
+            frameAnimation.setVisible(true, true);
+        }
+
+        Thread logoTimer = new Thread() {
+            public void run(){
+                try{
+                    int logoTimer = 0;
+                    while(logoTimer < 5000){
+                        sleep(100);
+                        logoTimer = logoTimer +100;
+                    };
+                    Intent intent = new Intent(getApplicationContext(), FindBuddyActivity.class);
+                    intent.putExtra("usrname",username);
+                    startActivity(intent);
+                    //startActivity(new Intent("FindBuddyActivity.class"));
+                }
+
+                catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+
+                finally{
+                    finish();
+                }
+            }
+        };
+
+        logoTimer.start();
+
 
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
@@ -34,7 +76,7 @@ public class CardioOptionsActivity extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.cardio_options, menu);
+        getMenuInflater().inflate(R.menu.main_loading, menu);
         return true;
     }
 
@@ -61,26 +103,9 @@ public class CardioOptionsActivity extends ActionBarActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_cardiooptions, container, false);
+            View rootView = inflater.inflate(R.layout.fragment_loading, container, false);
             return rootView;
         }
     }
-
-    public void jumpToBuddy(View v){
-        Intent intent = new Intent(getApplicationContext(), BuddylistActivity.class);
-        intent.putExtra("usrname",username);
-        startActivity(intent);
-    }
-
-    public void jumpToFindBuddy(View v){
-        Intent intent = new Intent(getApplicationContext(), MainLoading.class);
-        intent.putExtra("usrname",username);
-        startActivity(intent);
-
-
-
-
-    }
-
 
 }

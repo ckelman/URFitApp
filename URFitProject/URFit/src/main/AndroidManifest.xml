@@ -4,13 +4,11 @@
     android:versionCode="1"
     android:versionName="1.0" >
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-sdk
         android:minSdkVersion="7"
         android:targetSdkVersion="18" />
-
-
 
     <application
         android:allowBackup="true"
@@ -27,9 +25,9 @@
             </intent-filter>
         </activity>
         <activity
-        android:name="com.URFitness.Weight_Activity"
-        android:label="URFit" >
-    </activity>
+            android:name="com.URFitness.Weight_Activity"
+            android:label="URFit" >
+        </activity>
         <activity
             android:name="com.URFitness.HomeActivity"
             android:label="@string/title_activity_home" >
@@ -60,6 +58,7 @@
         </activity>
 
         <uses-permission android:name="android.permission.INTERNET" />
+
         <activity
             android:name="com.URFitness.OtherProfileActivity"
             android:label="@string/title_activity_other_profile" >
@@ -67,6 +66,10 @@
         <activity
             android:name="com.URFitness.FindBuddyActivity"
             android:label="@string/title_activity_find_buddy" >
+        </activity>
+        <activity
+            android:name="com.URFitness.MainLoading"
+            android:label="@string/title_activity_main_loading" >
         </activity>
     </application>
 

@@ -18,18 +18,23 @@ import android.widget.Toast;
 
 public class FindBuddyActivity extends Activity {
 
+    private String username = "";
     ListView list;
-    String[] web = {"Alex Wilson", "Charlie Kelman", "Edward Barthélemy", "Daniel Weiner", "Tessa Eagle", "Michael Holupka", "Jamie Jones", "Dan Doogle", "John Robb", "Kevin Rodman", "Kurt Dinelle"};
+    String[] web = {"Alex Wilson", "Charlie Kelman", "Edward Barthélemy"};
     Integer[] imageId = {
             R.drawable.guy,
             R.drawable.guy,
             R.drawable.guy,
     };
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_findbuddy);
+
+        username = getIntent().getExtras().getString("usrname").toString();
 
         CustomList adapter = new
                 CustomList(FindBuddyActivity.this, web, imageId);
