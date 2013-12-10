@@ -19,7 +19,7 @@ import android.widget.Toast;
 public class FindBuddyActivity extends Activity {
 
     ListView list;
-    String[] web = {"Sally Dongle", "Big Gunz Larry", "Im Ripped Alfred"};
+    String[] web = {"Alex Wilson", "Charlie Kelman", "Edward Barthélemy", "Daniel Weiner", "Tessa Eagle", "Michael Holupka", "Jamie Jones", "Dan Doogle", "John Robb", "Kevin Rodman", "Kurt Dinelle"};
     Integer[] imageId = {
             R.drawable.guy,
             R.drawable.guy,
