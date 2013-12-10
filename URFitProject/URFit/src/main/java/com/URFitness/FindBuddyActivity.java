@@ -16,6 +16,16 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
 public class FindBuddyActivity extends Activity {
 
     private String username = "";
@@ -36,6 +46,18 @@ public class FindBuddyActivity extends Activity {
 
         username = getIntent().getExtras().getString("usrname").toString();
 
+        try
+        {
+            String out = sendGet("http://urfitness.org/mobile_getLiftingMatchIds.php?user=daniel.weiner@rochester.edu");
+            String[] ids = out.split(",");
+            web = new String[ids.length];
+            for(int i=0;i<web)
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+
         CustomList adapter = new
                 CustomList(FindBuddyActivity.this, web, imageId);
         list=(ListView)findViewById(R.id.list);
@@ -53,6 +75,61 @@ public class FindBuddyActivity extends Activity {
         });
 
     }
+
+    public String sendGet(String url) throws Exception {
+
+
+        HttpClient client = new DefaultHttpClient();
+        HttpGet request = new HttpGet(url);
+
+
+        HttpResponse response = client.execute(request);
+
+        System.out.println("\nSending 'GET' request to URL : " + url);
+        System.out.println("Response Code : " +
+                response.getStatusLine().getStatusCode());
+
+        BufferedReader rd = new BufferedReader(
+                new InputStreamReader(response.getEntity().getContent()));
+
+        StringBuffer result = new StringBuffer();
+        String line = "";
+        while ((line = rd.readLine()) != null) {
+            result.append(line);
+        }
+
+        System.out.println(result.toString());
+        return result.toString();
+
+    }
+
+    private static String convertStreamToString(InputStream is) {
+    /*
+     * To convert the InputStream to String we use the BufferedReader.readLine()
+     * mdfeethod. We iterate until the BufferedReader return null which means
+     * there's no more data to read. Each line will appended to a StringBuilder
+     * and returned as String.
+     */
+        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+        StringBuilder sb = new StringBuilder();
+
+        String line = null;
+        try {
+            while ((line = reader.readLine()) != null) {
+                sb.append(line + "\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                is.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return sb.toString();
+    }
+
 
 
     @Override

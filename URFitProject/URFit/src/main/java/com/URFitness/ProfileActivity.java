@@ -1,6 +1,7 @@
 package com.URFitness;
 
 import android.content.Intent;
+import android.os.StrictMode;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -37,6 +38,12 @@ public class ProfileActivity extends ActionBarActivity {
     private String cardio;
     private String bio;
     private String username;
+    EditText fnameE;
+    EditText lnameE;
+    EditText phoneE;
+    EditText facebookE;
+    EditText twitterE;
+    EditText bioE;
 
 
     @Override
@@ -57,38 +64,38 @@ public class ProfileActivity extends ActionBarActivity {
         {
                 //firstname
               fname=sendGet(url);
-            EditText fnameE = (EditText) findViewById(R.id.firstName);
+            fnameE = (EditText) findViewById(R.id.firstName);
             fnameE.setText(fname, TextView.BufferType.EDITABLE);
 
                 //lastname
               url = "http://www.urfitness.org/mobile_getdata.php?lookfor=last&where=user&is="+username;
               lname = sendGet(url);
-            EditText lnameE = (EditText) findViewById(R.id.lastName);
+            lnameE = (EditText) findViewById(R.id.lastName);
             lnameE.setText(lname, TextView.BufferType.EDITABLE);
 
             //phonenum
             url = "http://www.urfitness.org/mobile_getdata.php?lookfor=phone_number&where=user&is="+username;
             phone = sendGet(url);
-            EditText phoneE = (EditText) findViewById(R.id.userPhone);
+            phoneE = (EditText) findViewById(R.id.userPhone);
             phoneE.setText(phone, TextView.BufferType.EDITABLE);
 
             //facebook
             url = "http://www.urfitness.org/mobile_getdata.php?lookfor=facebook_url&where=user&is="+username;
             facebook = sendGet(url);
-            EditText facebookE = (EditText) findViewById(R.id.userFacebook);
+            facebookE = (EditText) findViewById(R.id.userFacebook);
             facebookE.setText(facebook, TextView.BufferType.EDITABLE);
 
             //twitter
             url = "http://www.urfitness.org/mobile_getdata.php?lookfor=twitter_url&where=user&is="+username;
             twitter = sendGet(url);
-            EditText twitterE = (EditText) findViewById(R.id.userTwitter);
+            twitterE = (EditText) findViewById(R.id.userTwitter);
             twitterE.setText(twitter, TextView.BufferType.EDITABLE);
 
             //bio
             url = "http://www.urfitness.org/mobile_getdata.php?lookfor=bio&where=user&is="+username;
             bio = sendGet(url);
             System.out.println(bio);
-            EditText bioE = (EditText) findViewById(R.id.user_bio);
+            bioE = (EditText) findViewById(R.id.user_bio);
             bioE.setText(bio, TextView.BufferType.EDITABLE);
 
             //weightlifting
@@ -111,6 +118,12 @@ public class ProfileActivity extends ActionBarActivity {
             System.out.println(e);
         }
 
+
+        if( Build.VERSION.SDK_INT >= 9){
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+
+            StrictMode.setThreadPolicy(policy);
+        }
 
 
 
@@ -212,6 +225,44 @@ public class ProfileActivity extends ActionBarActivity {
     public void submit_prof(View v){
         Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
         intent.putExtra("usrname",username);
+
+        fname = fnameE.getText().toString();
+        lname = lnameE.getText().toString();
+        phone=phoneE.getText().toString();
+        facebook = facebookE.getText().toString();
+        twitter = twitterE.getText().toString();
+        bio = bioE.getText().toString();
+
+
+
+
+
+        try
+        {
+
+            fname =java.net.URLEncoder.encode(fname, "ISO-8859-1");
+            lname = java.net.URLEncoder.encode(lname, "ISO-8859-1");
+            phone = java.net.URLEncoder.encode(phone, "ISO-8859-1");
+            facebook = java.net.URLEncoder.encode(facebook, "ISO-8859-1");
+            twitter = java.net.URLEncoder.encode(twitter, "ISO-8859-1");
+
+
+            sendGet("http://urfitness.org/mobile_setValue.php?col=first&val="+fname+"&user="+username);
+            sendGet("http://urfitness.org/mobile_setValue.php?col=last&val="+lname+"&user="+username);
+            sendGet("http://urfitness.org/mobile_setValue.php?col=phone_number&val="+phone+"&user="+username);
+            sendGet("http://urfitness.org/mobile_setValue.php?col=facebook_url&val="+facebook+"&user="+username);
+            sendGet("http://urfitness.org/mobile_setValue.php?col=twitter_url&val="+twitter+"&user="+username);
+
+            String biostring = java.net.URLEncoder.encode(bio.toString(), "ISO-8859-1");
+
+
+            sendGet("http://urfitness.org/mobile_setValue.php?col=bio&val=" + biostring + "&user=" + username);
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+
         startActivity(intent);
     }
 
