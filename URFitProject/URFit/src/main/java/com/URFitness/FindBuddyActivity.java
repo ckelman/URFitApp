@@ -31,11 +31,9 @@ public class FindBuddyActivity extends Activity {
     private String username = "";
     ListView list;
     String[] web;
-    Integer[] imageId = {
-            R.drawable.guy,
-            R.drawable.guy,
-            R.drawable.guy,
-    };
+    Integer[] imageId;
+
+
     String[] ids;
 
 
@@ -52,6 +50,11 @@ public class FindBuddyActivity extends Activity {
             String out = sendGet("http://urfitness.org/mobile_getLiftingMatchIds.php?user="+username);
             ids = out.split(",");
             web = new String[ids.length];
+            imageId = new Integer[ids.length];
+            for(int i =0;i<imageId.length;i++)
+            {
+                imageId[i] = R.drawable.guy;
+            }
             for(int i=0;i<web.length;i++)
             {
                 web[i] = sendGet("http://www.urfitness.org/mobile_getdata.php?lookfor=first&where=id&is="+ids[i])+" "+ sendGet("http://www.urfitness.org/mobile_getdata.php?lookfor=last&where=id&is="+ids[i]);
