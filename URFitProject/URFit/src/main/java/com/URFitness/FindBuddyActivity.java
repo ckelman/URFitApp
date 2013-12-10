@@ -30,12 +30,13 @@ public class FindBuddyActivity extends Activity {
 
     private String username = "";
     ListView list;
-    String[] web = {"Alex Wilson", "Charlie Kelman", "Edward Barthélemy"};
+    String[] web;
     Integer[] imageId = {
             R.drawable.guy,
             R.drawable.guy,
             R.drawable.guy,
     };
+    String[] ids;
 
 
 
@@ -48,10 +49,13 @@ public class FindBuddyActivity extends Activity {
 
         try
         {
-            String out = sendGet("http://urfitness.org/mobile_getLiftingMatchIds.php?user=daniel.weiner@rochester.edu");
-            String[] ids = out.split(",");
+            String out = sendGet("http://urfitness.org/mobile_getLiftingMatchIds.php?user="+username);
+            ids = out.split(",");
             web = new String[ids.length];
-            for(int i=0;i<web)
+            for(int i=0;i<web.length;i++)
+            {
+                web[i] = sendGet("http://www.urfitness.org/mobile_getdata.php?lookfor=first&where=id&is="+ids[i])+" "+ sendGet("http://www.urfitness.org/mobile_getdata.php?lookfor=last&where=id&is="+ids[i]);
+            }
         }
         catch(Exception e)
         {
@@ -69,6 +73,15 @@ public class FindBuddyActivity extends Activity {
                                     int position, long id) {
                 //Toast.makeText(FindBuddyActivity.this, "You Clicked at " + web[+position], Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), OtherProfileActivity.class);
+                intent.putExtra("usrname",username);
+                try
+                {
+                intent.putExtra("otherusr",sendGet("http://www.urfitness.org/mobile_getdata.php?lookfor=user&where=id&is="+web[+position]));
+                }
+                catch(Exception e)
+                {
+                    System.out.println(e);
+                }
                 startActivity(intent);
 
             }
