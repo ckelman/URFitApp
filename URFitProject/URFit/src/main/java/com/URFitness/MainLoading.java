@@ -47,11 +47,9 @@ public class MainLoading extends ActionBarActivity {
                     Intent intent = new Intent(getApplicationContext(), FindBuddyActivity.class);
                     intent.putExtra("usrname",username);
                     startActivity(intent);
-                    //startActivity(new Intent("FindBuddyActivity.class"));
                 }
 
                 catch (InterruptedException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
 
