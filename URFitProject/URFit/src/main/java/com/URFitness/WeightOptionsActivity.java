@@ -69,8 +69,9 @@ public class WeightOptionsActivity extends ActionBarActivity {
     }
 
     public void jumpToBuddy(View v){
-        Intent intent = new Intent(getApplicationContext(), BuddylistActivity.class);
+        Intent intent = new Intent(getApplicationContext(), FindBuddyActivity.class);
         intent.putExtra("usrname",username);
+        intent.putExtra("catgry","buddies");
         startActivity(intent);
     }
 

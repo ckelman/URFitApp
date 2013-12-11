@@ -37,6 +37,7 @@ public class OtherProfileActivity extends ActionBarActivity {
     private String username;
     private String otheruser;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,6 +98,7 @@ public class OtherProfileActivity extends ActionBarActivity {
             System.out.println(bio);
             TextView bioE = (TextView) findViewById(R.id.ouser_bio);
             bioE.append(bio);
+
 
             //weightlifting
             url = "http://www.urfitness.org/mobile_getdata.php?lookfor=weight_lifting&where=user&is="+otheruser;
