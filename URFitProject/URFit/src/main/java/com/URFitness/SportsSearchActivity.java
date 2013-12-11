@@ -12,13 +12,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 
-public class SportsOptionsActivity extends ActionBarActivity {
+public class SportsSearchActivity extends ActionBarActivity {
+
 
     private String username = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sports_options);
+        setContentView(R.layout.activity_sports_search);
 
         username = getIntent().getExtras().getString("usrname").toString();
 
@@ -32,9 +34,9 @@ public class SportsOptionsActivity extends ActionBarActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
+        
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.cardio_options, menu);
+        getMenuInflater().inflate(R.menu.sports_search, menu);
         return true;
     }
 
@@ -60,24 +62,53 @@ public class SportsOptionsActivity extends ActionBarActivity {
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_cardiooptions, container, false);
+                Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.fragment_sports_search, container, false);
             return rootView;
         }
     }
 
-    public void jumpToBuddy(View v){
+    public void jumpToFindFootball(View v){
         Intent intent = new Intent(getApplicationContext(), FindBuddyActivity.class);
         intent.putExtra("usrname",username);
-        intent.putExtra("catgry","buddies");
+        intent.putExtra("catgry","football");
         startActivity(intent);
     }
-
-    public void jumpToFindBuddy(View v){
-        Intent intent = new Intent(getApplicationContext(), SportsSearchActivity.class);
+    public void jumpToFindTennis(View v){
+        Intent intent = new Intent(getApplicationContext(), FindBuddyActivity.class);
         intent.putExtra("usrname",username);
+        intent.putExtra("catgry","tennis");
         startActivity(intent);
     }
-
+    public void jumpToFindSquash(View v){
+        Intent intent = new Intent(getApplicationContext(), FindBuddyActivity.class);
+        intent.putExtra("usrname",username);
+        intent.putExtra("catgry","squash");
+        startActivity(intent);
+    }
+    public void jumpToFindBasketball(View v){
+        Intent intent = new Intent(getApplicationContext(), FindBuddyActivity.class);
+        intent.putExtra("usrname",username);
+        intent.putExtra("catgry","basketball");
+        startActivity(intent);
+    }
+    public void jumpToFindRaquetball(View v){
+        Intent intent = new Intent(getApplicationContext(), FindBuddyActivity.class);
+        intent.putExtra("usrname",username);
+        intent.putExtra("catgry","raquetball");
+        startActivity(intent);
+    }
+    public void jumpToFindSoccer(View v){
+        Intent intent = new Intent(getApplicationContext(), FindBuddyActivity.class);
+        intent.putExtra("usrname",username);
+        intent.putExtra("catgry","soccer");
+        startActivity(intent);
+    }
+    public void jumpToFindBadminton(View v){
+        Intent intent = new Intent(getApplicationContext(), FindBuddyActivity.class);
+        intent.putExtra("usrname",username);
+        intent.putExtra("catgry","badminton");
+        startActivity(intent);
+    }
 
 }

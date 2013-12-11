@@ -58,10 +58,6 @@ public class FindBuddyActivity extends Activity {
             {
                 out = sendGet("http://urfitness.org/mobile_getCardioMatchIds.php?user="+username);
             }
-            else if(category.equals("buddies"))
-            {
-                out = sendGet("http://www.urfitness.org/mobile_getdata.php?lookfor=buddy&where=user&is="+username);
-            }
             else
             {
                 Intent intent = new Intent(getApplicationContext(), OtherProfileActivity.class);

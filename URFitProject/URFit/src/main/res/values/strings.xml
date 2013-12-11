@@ -32,5 +32,6 @@
     <string name="prompt">Experience</string>
     <string name="title_activity_loading">"LoadingActivity "</string>
     <string name="title_activity_main_loading">LoadingActivity</string>
+    <string name="title_activity_sports_search">SportsSearchActivity</string>
 
 </resources>
