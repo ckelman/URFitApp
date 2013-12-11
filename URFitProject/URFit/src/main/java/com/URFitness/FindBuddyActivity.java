@@ -54,33 +54,37 @@ public class FindBuddyActivity extends Activity {
             {
                 out = sendGet("http://urfitness.org/mobile_getLiftingMatchIds.php?user="+username);
             }
+            if(category.equals("buddies"))
+            {
+                out = sendGet("http://www.urfitness.org/mobile_getdata.php?lookfor=buddy&where=user&is="+username);
+            }
             else if(category.equals("cardio"))
             {
                 out = sendGet("http://urfitness.org/mobile_getCardioMatchIds.php?user="+username);
             }
             else if(category.equals("tennis"))
             {
-                out = sendGet("http://urfitness.org/mobile_getCardioMatchIds.php?user="+username);
+                out = sendGet("http://www.urfitness.org/mobile_getdata.php?lookfor=tennisMatch&where=user&is="+username);
             }
             else if(category.equals("squash"))
             {
-                out = sendGet("http://urfitness.org/mobile_getCardioMatchIds.php?user="+username);
+                out = sendGet("http://www.urfitness.org/mobile_getdata.php?lookfor=tennisMatch&where=user&is="+username);
             }
             else if(category.equals("football"))
             {
-                out = sendGet("http://urfitness.org/mobile_getCardioMatchIds.php?user="+username);
+                out = sendGet("http://www.urfitness.org/mobile_getdata.php?lookfor=tennisMatch&where=user&is="+username);
             }
             else if(category.equals("soccer"))
             {
-                out = sendGet("http://urfitness.org/mobile_getCardioMatchIds.php?user="+username);
+                out = sendGet("http://www.urfitness.org/mobile_getdata.php?lookfor=tennisMatch&where=user&is="+username);
             }
             else if(category.equals("badminton"))
             {
-                out = sendGet("http://urfitness.org/mobile_getCardioMatchIds.php?user="+username);
+                out = sendGet("http://www.urfitness.org/mobile_getdata.php?lookfor=tennisMatch&where=user&is="+username);
             }
             else if(category.equals("basketball"))
             {
-                out = sendGet("http://urfitness.org/mobile_getCardioMatchIds.php?user="+username);
+                out = sendGet("http://www.urfitness.org/mobile_getdata.php?lookfor=basketMatch&where=user&is="+username);
             }
             else
             {

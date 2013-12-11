@@ -240,4 +240,6 @@ public class OtherProfileActivity extends ActionBarActivity {
         startActivity(intent);
     }
 
+
+
 }
