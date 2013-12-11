@@ -95,7 +95,6 @@ public class OtherProfileActivity extends ActionBarActivity {
             //bio
             url = "http://www.urfitness.org/mobile_getdata.php?lookfor=bio&where=user&is="+otheruser;
             bio = sendGet(url);
-            System.out.println(bio);
             TextView bioE = (TextView) findViewById(R.id.ouser_bio);
             bioE.append(bio);
 
@@ -171,12 +170,6 @@ public class OtherProfileActivity extends ActionBarActivity {
     }
 
     private static String convertStreamToString(InputStream is) {
-    /*
-     * To convert the InputStream to String we use the BufferedReader.readLine()
-     * mdfeethod. We iterate until the BufferedReader return null which means
-     * there's no more data to read. Each line will appended to a StringBuilder
-     * and returned as String.
-     */
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
         StringBuilder sb = new StringBuilder();
 
