@@ -42,21 +42,11 @@
             android:layout_height="wrap_content"
             android:text="My Buddies"
             android:id="@+id/button2"
-            android:layout_above="@+id/button3"
             android:layout_alignParentLeft="true"
             android:background="@drawable/abc_ab_bottom_solid_light_holo"
             android:textColor="#000000"
-            android:onClick="jumpToBuddy" />
-
-        <Button
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="My Workouts"
-            android:id="@+id/button3"
-            android:layout_above="@+id/button"
-            android:layout_alignParentLeft="true"
-            android:background="@drawable/abc_ab_bottom_solid_light_holo"
-            android:textColor="#000000" />
+            android:onClick="jumpToBuddy"
+            android:layout_above="@+id/button" />
 
     </RelativeLayout>
 

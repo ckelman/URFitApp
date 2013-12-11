@@ -58,12 +58,35 @@ public class FindBuddyActivity extends Activity {
             {
                 out = sendGet("http://urfitness.org/mobile_getCardioMatchIds.php?user="+username);
             }
-            else
+            else if(category.equals("tennis"))
             {
-                Intent intent = new Intent(getApplicationContext(), OtherProfileActivity.class);
-                intent.putExtra("usrname",username);
-                startActivity(intent);
+                out = sendGet("http://www.urfitness.org/mobile_getdata.php?lookfor=tennisMatch&where=user&is="+username);
             }
+            else if(category.equals("football"))
+            {
+                out = sendGet("http://www.urfitness.org/mobile_getdata.php?lookfor=tennisMatch&where=user&is="+username);
+            }
+            else if(category.equals("raquetball"))
+            {
+                out = sendGet("http://www.urfitness.org/mobile_getdata.php?lookfor=tennisMatch&where=user&is="+username);
+            }
+            else if(category.equals("badminton"))
+            {
+                out = sendGet("http://www.urfitness.org/mobile_getdata.php?lookfor=tennisMatch&where=user&is="+username);
+            }
+            else if(category.equals("soccer"))
+            {
+                out = sendGet("http://www.urfitness.org/mobile_getdata.php?lookfor=tennisMatch&where=user&is="+username);
+            }
+            else if(category.equals("basketball"))
+            {
+                out = sendGet("http://www.urfitness.org/mobile_getdata.php?lookfor=tennisMatch&where=user&is="+username);
+            }
+            else if(category.equals("squash"))
+            {
+                out = sendGet("http://www.urfitness.org/mobile_getdata.php?lookfor=tennisMatch&where=user&is="+username);
+            }
+
             ids = out.split(",");
             web = new String[ids.length];
             imageId = new Integer[ids.length];

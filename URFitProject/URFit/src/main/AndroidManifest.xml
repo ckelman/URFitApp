@@ -71,6 +71,10 @@
             android:name="com.URFitness.MainLoading"
             android:label="@string/title_activity_main_loading" >
         </activity>
+        <activity
+            android:name="com.URFitness.SportsSearchActivity"
+            android:label="@string/title_activity_sports_search" >
+        </activity>
     </application>
 
 </manifest>

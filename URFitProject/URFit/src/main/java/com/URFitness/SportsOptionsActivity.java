@@ -73,7 +73,7 @@ public class SportsOptionsActivity extends ActionBarActivity {
     }
 
     public void jumpToFindBuddy(View v){
-        Intent intent = new Intent(getApplicationContext(), FindBuddyActivity.class);
+        Intent intent = new Intent(getApplicationContext(), SportsSearchActivity.class);
         intent.putExtra("usrname",username);
         startActivity(intent);
     }
