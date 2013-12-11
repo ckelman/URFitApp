@@ -54,7 +54,7 @@ public class FindBuddyActivity extends Activity {
             {
                 out = sendGet("http://urfitness.org/mobile_getLiftingMatchIds.php?user="+username);
             }
-            if(category.equals("buddies"))
+            else if(category.equals("buddies"))
             {
                 out = sendGet("http://www.urfitness.org/mobile_getdata.php?lookfor=buddy&where=user&is="+username);
             }
