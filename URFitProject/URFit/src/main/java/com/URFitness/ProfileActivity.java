@@ -1,11 +1,16 @@
 package com.URFitness;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.os.StrictMode;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,6 +20,7 @@ import android.os.Build;
 import android.widget.Adapter;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -27,6 +33,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.URL;
 
 public class ProfileActivity extends ActionBarActivity {
     private String fname;
@@ -38,12 +45,15 @@ public class ProfileActivity extends ActionBarActivity {
     private String cardio;
     private String bio;
     private String username;
+    private String bench_weight;
+
     EditText fnameE;
     EditText lnameE;
     EditText phoneE;
     EditText facebookE;
     EditText twitterE;
     EditText bioE;
+    EditText bench_weightE;
 
 
     @Override
@@ -91,6 +101,13 @@ public class ProfileActivity extends ActionBarActivity {
             twitterE = (EditText) findViewById(R.id.userTwitter);
             twitterE.setText(twitter, TextView.BufferType.EDITABLE);
 
+            //bech weight
+            url = "http://www.urfitness.org/mobile_getdata.php?lookfor=bench&where=user&is="+username;
+            bench_weight = sendGet(url);
+            System.out.println(bench_weight);
+            bench_weightE = (EditText)findViewById(R.id.bench_weight);
+            bench_weightE.setText(bench_weight, TextView.BufferType.EDITABLE);
+
             //bio
             url = "http://www.urfitness.org/mobile_getdata.php?lookfor=bio&where=user&is="+username;
             bio = sendGet(url);
@@ -112,6 +129,9 @@ public class ProfileActivity extends ActionBarActivity {
 
 
 
+
+
+
         }
         catch(Exception e)
         {
@@ -128,6 +148,7 @@ public class ProfileActivity extends ActionBarActivity {
 
 
     }
+
 
 
     public String sendGet(String url) throws Exception {
@@ -245,6 +266,8 @@ public class ProfileActivity extends ActionBarActivity {
             phone = java.net.URLEncoder.encode(phone, "ISO-8859-1");
             facebook = java.net.URLEncoder.encode(facebook, "ISO-8859-1");
             twitter = java.net.URLEncoder.encode(twitter, "ISO-8859-1");
+            String biostring = java.net.URLEncoder.encode(bio.toString(), "ISO-8859-1");
+            bench_weight = java.net.URLEncoder.encode(bench_weight, "ISO-8859-1");
 
 
             sendGet("http://urfitness.org/mobile_setValue.php?col=first&val="+fname+"&user="+username);
@@ -252,8 +275,9 @@ public class ProfileActivity extends ActionBarActivity {
             sendGet("http://urfitness.org/mobile_setValue.php?col=phone_number&val="+phone+"&user="+username);
             sendGet("http://urfitness.org/mobile_setValue.php?col=facebook_url&val="+facebook+"&user="+username);
             sendGet("http://urfitness.org/mobile_setValue.php?col=twitter_url&val="+twitter+"&user="+username);
+            sendGet("http://urfitness.org/mobile_setValue.php?col=twitter_url&val="+bench_weight+"&user="+username);
 
-            String biostring = java.net.URLEncoder.encode(bio.toString(), "ISO-8859-1");
+
 
 
             sendGet("http://urfitness.org/mobile_setValue.php?col=bio&val=" + biostring + "&user=" + username);
@@ -266,4 +290,38 @@ public class ProfileActivity extends ActionBarActivity {
         startActivity(intent);
     }
 
+
+    // show The Image
+
+
+
+
+ class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+    ImageView bmImage;
+
+    public DownloadImageTask(ImageView bmImage) {
+        this.bmImage = bmImage;
+    }
+
+    protected Bitmap doInBackground(String... urls) {
+        String urldisplay = urls[0];
+        Bitmap mIcon11 = null;
+        try {
+            InputStream in = new java.net.URL(urldisplay).openStream();
+            mIcon11 = BitmapFactory.decodeStream(in);
+        } catch (Exception e) {
+            Log.e("Error", e.getMessage());
+            e.printStackTrace();
+        }
+        return mIcon11;
+    }
+
+    protected void onPostExecute(Bitmap result) {
+        bmImage.setImageBitmap(result);
+    }
 }
+
+
+}
+
+

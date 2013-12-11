@@ -16,7 +16,7 @@
         <Button
             android:layout_width="90dp"
             android:layout_height="90dp"
-            android:text="Weights"
+            android:text="Cardio"
             android:id="@+id/weightlifting"
             android:minWidth="150dp"
             android:textColor="#000000"

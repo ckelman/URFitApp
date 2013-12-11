@@ -29,6 +29,8 @@ import java.io.InputStreamReader;
 public class FindBuddyActivity extends Activity {
 
     private String username = "";
+    private String from= "";
+    private String out = "";
     ListView list;
     String[] web;
     Integer[] imageId;
@@ -45,9 +47,17 @@ public class FindBuddyActivity extends Activity {
 
         username = getIntent().getExtras().getString("usrname").toString();
 
+
         try
         {
-            String out = sendGet("http://urfitness.org/mobile_getLiftingMatchIds.php?user="+username);
+//            if(from.equals("weights"))
+//            {
+//            out = sendGet("http://urfitness.org/mobile_getLiftingMatchIds.php?user="+username);
+//            }
+           // else
+           // {
+             out = sendGet("http://urfitness.org/mobile_getCardioMatchIds.php?user="+username);
+            //}
             ids = out.split(",");
             web = new String[ids.length];
             imageId = new Integer[ids.length];
@@ -79,7 +89,7 @@ public class FindBuddyActivity extends Activity {
                 intent.putExtra("usrname",username);
                 try
                 {
-                intent.putExtra("otherusr",sendGet("http://www.urfitness.org/mobile_getdata.php?lookfor=user&where=id&is="+web[+position]));
+                    intent.putExtra("otherusr",sendGet("http://www.urfitness.org/mobile_getdata.php?lookfor=user&where=id&is="+ids[+position]));
                 }
                 catch(Exception e)
                 {

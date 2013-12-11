@@ -282,7 +282,7 @@
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="Submit"
+                android:text="Return to Home"
                 android:id="@+id/submit_prof"
                 android:layout_column="1"
                 android:onClick="submit_prof" />

@@ -75,6 +75,7 @@ public class CardioOptionsActivity extends ActionBarActivity {
     public void jumpToFindBuddy(View v){
         Intent intent = new Intent(getApplicationContext(), MainLoading.class);
         intent.putExtra("usrname",username);
+        //intent.putExtra("from","cardio");
         startActivity(intent);
 
 

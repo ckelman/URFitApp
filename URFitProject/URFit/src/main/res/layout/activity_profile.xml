@@ -21,13 +21,14 @@
             android:layout_gravity="center_horizontal|top"
             android:orientation ="vertical"
             >
-            <ImageButton
+            <ImageView
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:id="@+id/imageButton"
                 android:layout_gravity="center_horizontal"
                 android:clickable="false"
-                android:background="@drawable/guy" />
+                android:background="@drawable/guy"
+                 />
 
 
 
@@ -264,6 +265,26 @@
                         android:prompt="@string/prompt"
 
                         />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bench:"
+                        android:layout_column="1"
+                        android:textSize="20dp" />
+
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/bench_weight"
+                        android:layout_column="1"
+                        android:textSize="20dp" />
 
                 </TableRow>
 

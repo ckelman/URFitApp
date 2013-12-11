@@ -77,6 +77,7 @@ public class WeightOptionsActivity extends ActionBarActivity {
     public void jumpToFindBuddy(View v){
         Intent intent = new Intent(getApplicationContext(), FindBuddyActivity.class);
         intent.putExtra("usrname",username);
+        //intent.putExtra("from","weights");
         startActivity(intent);
     }
 
