@@ -58,11 +58,33 @@ public class FindBuddyActivity extends Activity {
             {
                 out = sendGet("http://urfitness.org/mobile_getCardioMatchIds.php?user="+username);
             }
+            else if(category.equals("tennis"))
+            {
+                out = sendGet("http://urfitness.org/mobile_getCardioMatchIds.php?user="+username);
+            }
+            else if(category.equals("squash"))
+            {
+                out = sendGet("http://urfitness.org/mobile_getCardioMatchIds.php?user="+username);
+            }
+            else if(category.equals("football"))
+            {
+                out = sendGet("http://urfitness.org/mobile_getCardioMatchIds.php?user="+username);
+            }
+            else if(category.equals("soccer"))
+            {
+                out = sendGet("http://urfitness.org/mobile_getCardioMatchIds.php?user="+username);
+            }
+            else if(category.equals("badminton"))
+            {
+                out = sendGet("http://urfitness.org/mobile_getCardioMatchIds.php?user="+username);
+            }
+            else if(category.equals("basketball"))
+            {
+                out = sendGet("http://urfitness.org/mobile_getCardioMatchIds.php?user="+username);
+            }
             else
             {
-                Intent intent = new Intent(getApplicationContext(), OtherProfileActivity.class);
-                intent.putExtra("usrname",username);
-                startActivity(intent);
+                out = sendGet("http://urfitness.org/mobile_getCardioMatchIds.php?user="+username);
             }
             ids = out.split(",");
             web = new String[ids.length];
