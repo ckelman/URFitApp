@@ -46,6 +46,7 @@ public class ProfileActivity extends ActionBarActivity {
     private String bio;
     private String username;
     private String bench_weight;
+    private String squat_weight;
 
     EditText fnameE;
     EditText lnameE;
@@ -54,6 +55,7 @@ public class ProfileActivity extends ActionBarActivity {
     EditText twitterE;
     EditText bioE;
     EditText bench_weightE;
+    EditText squat_weightE;
 
 
     @Override
@@ -107,6 +109,13 @@ public class ProfileActivity extends ActionBarActivity {
             System.out.println(bench_weight);
             bench_weightE = (EditText)findViewById(R.id.bench_weight);
             bench_weightE.setText(bench_weight, TextView.BufferType.EDITABLE);
+
+            //squat weight
+            url = "http://www.urfitness.org/mobile_getdata.php?lookfor=squat&where=user&is="+username;
+            squat_weight = sendGet(url);
+            System.out.println(squat_weight);
+            squat_weightE = (EditText)findViewById(R.id.squat_weight);
+            squat_weightE.setText(squat_weight, TextView.BufferType.EDITABLE);
 
             //bio
             url = "http://www.urfitness.org/mobile_getdata.php?lookfor=bio&where=user&is="+username;
@@ -253,7 +262,8 @@ public class ProfileActivity extends ActionBarActivity {
         facebook = facebookE.getText().toString();
         twitter = twitterE.getText().toString();
         bio = bioE.getText().toString();
-
+        bench_weight = bench_weightE.getText().toString();
+        squat_weight = squat_weightE.getText().toString();
 
 
 
@@ -268,6 +278,7 @@ public class ProfileActivity extends ActionBarActivity {
             twitter = java.net.URLEncoder.encode(twitter, "ISO-8859-1");
             String biostring = java.net.URLEncoder.encode(bio.toString(), "ISO-8859-1");
             bench_weight = java.net.URLEncoder.encode(bench_weight, "ISO-8859-1");
+            squat_weight = java.net.URLEncoder.encode(squat_weight, "ISO-8859-1");
 
 
             sendGet("http://urfitness.org/mobile_setValue.php?col=first&val="+fname+"&user="+username);
@@ -275,7 +286,8 @@ public class ProfileActivity extends ActionBarActivity {
             sendGet("http://urfitness.org/mobile_setValue.php?col=phone_number&val="+phone+"&user="+username);
             sendGet("http://urfitness.org/mobile_setValue.php?col=facebook_url&val="+facebook+"&user="+username);
             sendGet("http://urfitness.org/mobile_setValue.php?col=twitter_url&val="+twitter+"&user="+username);
-            sendGet("http://urfitness.org/mobile_setValue.php?col=twitter_url&val="+bench_weight+"&user="+username);
+            sendGet("http://urfitness.org/mobile_setValue.php?col=bench&val="+bench_weight+"&user="+username);
+            sendGet("http://urfitness.org/mobile_setValue.php?col=squat&val="+squat_weight+"&user="+username);
 
 
 
