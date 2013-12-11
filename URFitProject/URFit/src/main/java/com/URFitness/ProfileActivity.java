@@ -108,21 +108,18 @@ public class ProfileActivity extends ActionBarActivity {
             //bech weight
             url = "http://www.urfitness.org/mobile_getdata.php?lookfor=bench&where=user&is="+username;
             bench_weight = sendGet(url);
-            System.out.println(bench_weight);
             bench_weightE = (EditText)findViewById(R.id.bench_weight);
             bench_weightE.setText(bench_weight, TextView.BufferType.EDITABLE);
 
             //squat weight
             url = "http://www.urfitness.org/mobile_getdata.php?lookfor=squat&where=user&is="+username;
             squat_weight = sendGet(url);
-            System.out.println(squat_weight);
             squat_weightE = (EditText)findViewById(R.id.squat_weight);
             squat_weightE.setText(squat_weight, TextView.BufferType.EDITABLE);
 
             //bio
             url = "http://www.urfitness.org/mobile_getdata.php?lookfor=bio&where=user&is="+username;
             bio = sendGet(url);
-            System.out.println(bio);
             bioE = (EditText) findViewById(R.id.user_bio);
             bioE.setText(bio, TextView.BufferType.EDITABLE);
 
@@ -309,7 +306,7 @@ public class ProfileActivity extends ActionBarActivity {
     }
 
 
-    // show The Image
+
 
 
 
