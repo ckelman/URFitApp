@@ -68,5 +68,29 @@
             android:layout_above="@+id/button"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="19dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:id="@+id/button2"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:clickable="true"
+            android:onClick="logout"
+            android:background="@drawable/abc_ab_bottom_solid_light_holo"
+            android:textColor="#000000" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Profile"
+            android:id="@+id/button3"
+            android:onClick="jumpToProfile"
+            android:textColor="#000000"
+            android:background="@drawable/abc_ab_bottom_solid_light_holo"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true" />
     </RelativeLayout>
 </FrameLayout>

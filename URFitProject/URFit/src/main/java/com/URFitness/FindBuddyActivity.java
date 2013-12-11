@@ -64,27 +64,27 @@ public class FindBuddyActivity extends Activity {
             }
             else if(category.equals("tennis"))
             {
-                out = sendGet("http://www.urfitness.org/mobile_getdata.php?lookfor=tennisMatch&where=user&is="+username);
+                out = sendGet("http://urfitness.org/mobile_getSportsIds.php?sport=tennis");
             }
             else if(category.equals("squash"))
             {
-                out = sendGet("http://www.urfitness.org/mobile_getdata.php?lookfor=tennisMatch&where=user&is="+username);
+                out = sendGet("http://urfitness.org/mobile_getSportsIds.php?sport=squash");
             }
             else if(category.equals("football"))
             {
-                out = sendGet("http://www.urfitness.org/mobile_getdata.php?lookfor=tennisMatch&where=user&is="+username);
+                out = sendGet("http://urfitness.org/mobile_getSportsIds.php?sport=football");
             }
             else if(category.equals("soccer"))
             {
-                out = sendGet("http://www.urfitness.org/mobile_getdata.php?lookfor=tennisMatch&where=user&is="+username);
+                out = sendGet("http://urfitness.org/mobile_getSportsIds.php?sport=soccer");
             }
             else if(category.equals("badminton"))
             {
-                out = sendGet("http://www.urfitness.org/mobile_getdata.php?lookfor=tennisMatch&where=user&is="+username);
+                out = sendGet("http://urfitness.org/mobile_getSportsIds.php?sport=badminton");
             }
             else if(category.equals("basketball"))
             {
-                out = sendGet("http://www.urfitness.org/mobile_getdata.php?lookfor=basketMatch&where=user&is="+username);
+                out = sendGet("http://urfitness.org/mobile_getSportsIds.php?sport=basketball");
             }
             else
             {

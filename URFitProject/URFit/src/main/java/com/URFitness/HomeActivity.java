@@ -34,6 +34,10 @@ public class HomeActivity extends ActionBarActivity {
         Intent intent = new Intent(getApplicationContext(), BuddylistActivity.class);
         startActivity(intent);
     }
+    public void logout(View v){
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
